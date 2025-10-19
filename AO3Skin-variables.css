@@ -27,6 +27,8 @@
   --spacing-normal: 0.6em;
   --spacing-large: 1.2em;
 
+  --font-size-small: 0.85em;
+
   --color-fandom-tags: var(--color-selection); /* fandom tags */
   --color-mature-tags: var(--color-red); /* mature tags, arcive explicit warnings (underage, non-con, ...) */
   --color-warning-tags: var(--color-orange); /*  choose not to warn tag */

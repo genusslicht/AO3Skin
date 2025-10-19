@@ -82,18 +82,18 @@ input {
   padding: var(--spacing-small) var(--spacing-normal);
 }
 
-form.search input[type="text"]:is(:hover, :focus, :focus-visible),
-input:is(:hover, :focus, :focus-visible) {
+form.search input[type="text"]:is(:hover),
+input:is(:hover) {
+  border-bottom: var(--border-normal) solid var(--color-link-action-hover);
+}
+
+form.search input[type="text"]:is(:focus, :focus-visible),
+input:is(:focus, :focus-visible) {
   border-bottom: var(--border-fat) solid var(--color-link-action-hover);
   background: var(--bg-highlight);
   color: var(--text-primary);
   box-shadow: var(--shadow-inset);
   outline: none;
-}
-
-form.search input[type="text"]:is(:hover),
-input:is(:hover) {
-  border-bottom: var(--border-normal) solid var(--color-link-action-hover);
 }
 
 input[type="radio"],
@@ -346,6 +346,7 @@ a.rss span {
 
 #greeting .open a,
 #header li.dropdown,
+#header .user a:focus:is(:focus, :focus-visible),
 #header .dropdown-toggle:is(:hover, :focus, :focus-visible),
 #greeting .dropdown:is(:hover, :focus, :focus-visible) > a {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
@@ -377,7 +378,6 @@ form.search.simple input[type="text"]:is(:hover),
   border-bottom: var(--border-normal) solid var(--color-link-action-hover);
   background: var(--bg-highlight);
   color: var(--text-primary);
-  box-shadow: var(--shadow-inset);
   outline: none;
 }
 
@@ -421,7 +421,7 @@ form.search.simple .submit input,
 #header #search .submit input:is(:hover, :focus, :focus-visible) {
   color: var(--color-link-action-hover);
   border-color: var(--color-link-action-hover);
-  box-shadow: var(--shadow-inset);
+  box-shadow: none;
   margin: 0;
 }
 
@@ -668,8 +668,7 @@ ul.notes {
 
 /* links */
 a,
-a:is(:link, :visited),
-.bookmark .count a {
+a:is(:link, :visited) {
   color: var(--text-highlight);
   border: 0;
 }
@@ -683,9 +682,9 @@ a:visited:is(:hover, :focus, :focus-visible),
 }
 
 .bookmark .count a {
+  color: var(--text-highlight);
   background: var(--bg-primary);
   border-radius: var(--border-radius);
-  box-shadow: var(--shadow-reverse-inset);
 }
 
 /* comments */
@@ -717,7 +716,7 @@ a:visited:is(:hover, :focus, :focus-visible),
 }
 
 .splash .comment .userstuff {
-  margin: 0;
+  margin: var(--spacing-normal) 0;
 }
 
 .comment .userstuff {
@@ -725,8 +724,17 @@ a:visited:is(:hover, :focus, :focus-visible),
   margin: var(--spacing-normal) 0;
   padding: var(--spacing-small) var(--spacing-normal);
   background: var(--bg-primary);
-  box-shadow: var(--shadow-reverse-inset);
-  border-radius: var(--border-radius);
+  border-radius: 0 var(--border-radius) var(--border-radius) var(--border-radius);
+  position: relative;
+}
+.comment .userstuff:before {
+  border-color: var(--bg-primary) transparent;
+  border-style: solid;
+  border-width: 0 0.643em 0.643em;
+  content: "";
+  left: 0;
+  position: absolute;
+  top: -0.6em;
 }
 
 div.comment-preview.userstuff {
@@ -1012,7 +1020,7 @@ li.comment.group {
 .reading h4.viewed,
 .bookmark .user {
   background: var(--bg-primary);
-  box-shadow: var(--shadow-reverse-inset);
+  box-shadow: none;
 }
 
 dl.index dd {
@@ -1200,7 +1208,6 @@ fieldset fieldset fieldset,
 .filters dt.expanded + dd.expandable {
   background: var(--bg-primary);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  box-shadow: var(--shadow-reverse-inset);
 }
 
 dd.expandable li {
@@ -1351,7 +1358,7 @@ li.tag.added {
 }
 
 .autocomplete .tag {
-  border: var(--border-normal) solid;
+  background: var(--bg-primary);
   border-radius: 1em;
   padding: var(--spacing-xsmall) var(--spacing-normal);
   position: relative;
@@ -1359,11 +1366,18 @@ li.tag.added {
 
 .autocomplete .tag.highlighted,
 .autocomplete .tag.highlighted > .delete {
-  color: var(--color-selection);
+  background: var(--bg-highlight);
 }
 
 dd.autocomplete li.input {
   margin-top: var(--spacing-small);
+}
+
+.filters input[type="text"],
+.filters select,
+li.tag.added,
+dd.autocomplete li.input {
+  font-size: var(--font-size-small);
 }
 
 .autocomplete span.delete {
