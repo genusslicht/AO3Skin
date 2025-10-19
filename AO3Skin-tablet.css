@@ -1,0 +1,33 @@
+* {
+  --comment-img-size: 60px;
+}
+
+.javascript {
+  background: var(--bg-base);
+}
+
+#header nav[aria-label="Site"] {
+  order: 2;
+  width: 100%;
+  padding-bottom: 0;
+}
+
+#header #greeting {
+  order: 1;
+}
+
+#header .user .open > a:focus {
+  color: var(--text-primary);
+}
+
+#dashboard .secondary {
+  box-shadow: none;
+}
+
+div.preface {
+  margin: var(--spacing-large) 0em;
+}
+
+form.single ul.autocomplete {
+  display: inline-block;
+}

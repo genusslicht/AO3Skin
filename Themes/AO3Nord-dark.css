@@ -1,0 +1,33 @@
+* {
+  --bg-base: #242933 url("https://www.ontariosciencecentre.ca/media/l0sd20ng/istock-2185639217.jpg") no-repeat center center fixed;
+
+  --bg-base: #242933; /* header / footer background */
+  --bg-highlight: #4c566a; /* dark highlights (borders), fav tag odd, notice links */
+  --bg-primary: #2e3440; /* main bg, notice text */
+  --bg-secondary: #3b4252; /* content boxes */
+  --bg-tertiary: #434c5e; /* nested content boxes */
+
+  --text-highlight: #d8dee9; /* interactables, dropdown even */
+  --text-primary: #eceff4; /* normal text, dropdown odd */
+
+  --color-red: #bf616a; /* error notice, filter excluded */
+  --color-orange: #d08770; /* caution notice */
+  --color-yellow: #ebcb8b; /* info notice */
+  --color-green: #a3be8c; /* filter included */
+  --color-purple: #b48ead; /* alert flash */
+  --color-blue: #81a1c1; /* freeform tags only */
+
+  --color-link-action-hover: #88c0d0; /* interactables hover & focus */
+  --color-selection: #8fbcbb; /* selection highlights, fandom tag bg */
+
+  --element-bg: #e5e9f0; /* background color for invalid notice and help */
+  --color-fg-question: #5e81ac; /* help question foreground */
+
+  --filter-chart-bg: opacity(0);
+  --filter-chart-text: brightness(0) invert(93%) sepia(6%) saturate(149%) hue-rotate(178deg) brightness(101%) contrast(96%);
+  --filter-chart-tooltip: brightness(0) invert(27%) sepia(11%) saturate(1084%) hue-rotate(182deg) brightness(94%) contrast(84%);
+  --filter-chart-accent: brightness(0) invert(82%) sepia(9%) saturate(825%) hue-rotate(130deg) brightness(87%) contrast(88%);
+  --filter-chart-accent-hover: brightness(0) invert(73%) sepia(35%) saturate(316%) hue-rotate(147deg) brightness(95%) contrast(86%);
+  --filter-chart-guide-even: brightness(0) invert(30%) sepia(11%) saturate(935%) hue-rotate(182deg) brightness(91%) contrast(94%);
+  --filter-chart-guide-odd: brightness(0) invert(27%) sepia(11%) saturate(1084%) hue-rotate(182deg) brightness(94%) contrast(84%);
+}

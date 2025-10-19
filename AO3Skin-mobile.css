@@ -1,0 +1,45 @@
+* {
+  --comment-img-size: 50px;
+}
+
+.blurb:has(.required-tags) .header .heading {
+  margin: var(--spacing-small) var(--spacing-normal);
+  overflow-wrap: break-word;
+}
+
+.blurb:has(.required-tags) .datetime {
+  position: initial;
+  text-align: center;
+  margin-top: var(--spacing-small);
+}
+
+a.tag,
+.blurb h4.heading a {
+  word-break: break-word;
+}
+
+/* the following lines of codes rearrange the required tags icons*/
+
+.blurb ul.required-tags {
+  position: initial;
+  top: initial;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  margin: auto;
+  justify-content: center;
+}
+
+.blurb ul.required-tags li {
+  margin: 0;
+}
+
+.blurb ul.required-tags li + li + li,
+.blurb ul.required-tags li + li + li + li {
+  position: initial;
+  left: initial;
+}
+
+.blurb ul.required-tags li {
+  display: inline-flex;
+}

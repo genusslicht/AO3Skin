@@ -1,0 +1,31 @@
+* {
+  --bg-base: #bcbab3;
+  --bg-highlight: #ceccc0;
+  --bg-primary: #fffbeb;
+  --bg-secondary: #dedccf;
+  --bg-tertiary: #ece9df;
+  --text-highlight: #343746;
+  --text-primary: #1f1f1f;
+  --color-red: #cb3a2a;
+  --color-orange: #a34d14;
+  --color-yellow: #846e15;
+  --color-green: #14710a;
+  --color-purple: #644ac9;
+  --color-blue: #036a96;
+
+  --color-selection: #6272a4;
+  --color-link-action-hover: #a3144d;
+
+  --element-bg: var(--bg-highlight);
+  --color-fg-question: var(--color-blue);
+
+  --filter-chart-bg: opacity(0);
+  --filter-chart-text: brightness(0) invert(0%) sepia(12%) saturate(6906%) hue-rotate(15deg) brightness(75%) contrast(76%);
+  --filter-chart-tooltip: brightness(0) invert(81%) sepia(4%) saturate(512%) hue-rotate(14deg) brightness(102%) contrast(91%);
+  --filter-chart-accent: brightness(0) invert(45%) sepia(13%) saturate(1371%) hue-rotate(188deg) brightness(96%) contrast(88%);
+  --filter-chart-accent-hover: brightness(0) invert(16%) sepia(33%) saturate(6314%) hue-rotate(319deg) brightness(93%) contrast(100%);
+  --filter-chart-guide-even: brightness(0) invert(94%) sepia(15%) saturate(102%) hue-rotate(8deg) brightness(98%) contrast(91%);
+  --filter-chart-guide-odd: brightness(0) invert(92%) sepia(5%) saturate(1447%) hue-rotate(320deg) brightness(110%) contrast(104%);
+
+  --filter-icons: brightness(0.8) saturate(1.4) hue-rotate(-10deg);
+}

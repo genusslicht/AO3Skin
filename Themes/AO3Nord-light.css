@@ -1,0 +1,29 @@
+* {
+  --bg-base: #e6eaf1;
+  --bg-highlight: #d8dee9; /* highlights (borders), fav tag odd, notice links */
+  --bg-primary: #f1f3f7; /* main bg, notice text */
+  --bg-secondary: #eceff4; /* content boxes */
+  --bg-tertiary: #e5e9f0; /* nested content boxes */
+
+  --text-highlight: #4c566a; /* interactables, dropdown even */
+  --text-primary: #2e3440; /* normal text, dropdown odd */
+
+  --color-red: #943740; /* error notice, filter excluded */
+  --color-orange: #a55d47; /* caution notice */
+  --color-yellow: #c5a669; /* info notice */
+  --color-green: #789462; /* filter included */
+  --color-purple: #896583; /* alert flash */
+  --color-blue: #5e81ac; /* freeform tags only */
+
+  --color-selection: var(--color-blue);
+  --color-link-action-hover: #659190;
+
+  --element-bg: var(--bg-highlight); /* background color for invalid notice and help */
+  --color-fg-question: #355881; /* help question foreground */
+
+  --filter-chart-bg: opacity(0);
+  --filter-chart-accent: brightness(0) invert(82%) sepia(9%) saturate(825%) hue-rotate(130deg) brightness(87%) contrast(88%);
+  --filter-chart-accent-hover: brightness(0) invert(73%) sepia(35%) saturate(316%) hue-rotate(147deg) brightness(95%) contrast(86%);
+
+  --filter-icons: brightness(0.9) saturate(1.4);
+}
