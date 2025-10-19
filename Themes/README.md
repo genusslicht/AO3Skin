@@ -2,7 +2,7 @@
 
 ## Dracula (dark / light)
 
-<div style="display: flex; flex-flow: row no-wrap; gap:1em"><img src="assets/Dracula_Theme_dark.png" /><img src="assets/Dracula_Theme_light.png" /></div>
+<img src="assets/Dracula_Theme_dark.png" width="50%" /><img src="assets/Dracula_Theme_light.png" width="50%" />
 
 | Use                       | Dark mode | Light mode |
 | ------------------------- | --------: | ---------: |
@@ -26,7 +26,7 @@
 
 ## Nord (dark / light)
 
-<div style="display: flex; flex-flow: row no-wrap; gap:1em"><img src="assets/Nord_Theme_dark.png" /><img src="assets/Nord_Theme_light.png" /></div>
+<img src="assets/Nord_Theme_dark.png" width="50%" /><img src="assets/Nord_Theme_light.png" width="50%" />
 
 | Use                       | Dark mode | Light mode |
 | ------------------------- | --------: | ---------: |
