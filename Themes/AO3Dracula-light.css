@@ -1,8 +1,7 @@
 :root {
   --color-modal-overlay: rgba(188, 186, 179, 0.7);
-
-  --shadow: none;
-  --shadow-main: none;
+  --color-dark-rbga025: rgba(188, 186, 179, 0.25);
+  --color-dark-rbga010: rgba(188, 186, 179, 0.1);
 
   --bg-base: #bcbab3;
   --bg-primary: #fffbeb;
