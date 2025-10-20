@@ -1,14 +1,16 @@
-* {
-  --bg-base: #242933 url("https://www.ontariosciencecentre.ca/media/l0sd20ng/istock-2185639217.jpg") no-repeat center center fixed;
+:root {
+  /* --bg-base: #242933 url("https://www.ontariosciencecentre.ca/media/l0sd20ng/istock-2185639217.jpg") no-repeat center center fixed; */
+  --shadow: none;
+  --shadow-main: none;
 
   --bg-base: #242933; /* header / footer background */
-  --bg-highlight: #4c566a; /* dark highlights (borders), fav tag odd, notice links */
   --bg-primary: #2e3440; /* main bg, notice text */
   --bg-secondary: #3b4252; /* content boxes */
   --bg-tertiary: #434c5e; /* nested content boxes */
+  --bg-highlight: #4c566a; /* dark highlights (borders), fav tag odd, notice links */
 
-  --text-highlight: #d8dee9; /* interactables, dropdown even */
   --text-primary: #eceff4; /* normal text, dropdown odd */
+  --text-highlight: #d8dee9; /* interactables, dropdown even */
 
   --color-red: #bf616a; /* error notice, filter excluded */
   --color-orange: #d08770; /* caution notice */
@@ -17,8 +19,8 @@
   --color-purple: #b48ead; /* alert flash */
   --color-blue: #81a1c1; /* freeform tags only */
 
-  --color-link-action-hover: #88c0d0; /* interactables hover & focus */
   --color-selection: #8fbcbb; /* selection highlights, fandom tag bg */
+  --color-link-action-hover: #88c0d0; /* interactables hover & focus */
 
   --element-bg: #e5e9f0; /* background color for invalid notice and help */
   --color-fg-question: #5e81ac; /* help question foreground */

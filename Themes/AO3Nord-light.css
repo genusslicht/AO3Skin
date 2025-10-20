@@ -1,12 +1,17 @@
-* {
+:root {
+  --color-modal-overlay: rgba(240, 238, 234, 0.7);
+
+  --shadow: none;
+  --shadow-main: none;
+
   --bg-base: #e6eaf1;
-  --bg-highlight: #d8dee9; /* highlights (borders), fav tag odd, notice links */
   --bg-primary: #f1f3f7; /* main bg, notice text */
   --bg-secondary: #eceff4; /* content boxes */
   --bg-tertiary: #e5e9f0; /* nested content boxes */
+  --bg-highlight: #d8dee9; /* highlights (borders), fav tag odd, notice links */
 
-  --text-highlight: #4c566a; /* interactables, dropdown even */
   --text-primary: #2e3440; /* normal text, dropdown odd */
+  --text-highlight: #4c566a; /* interactables, dropdown even */
 
   --color-red: #943740; /* error notice, filter excluded */
   --color-orange: #a55d47; /* caution notice */

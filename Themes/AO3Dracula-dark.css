@@ -1,12 +1,16 @@
-* {
+:root {
+  --color-modal-overlay: rgba(33, 34, 44, 0.7);
+  --color-dark-rbga025: rgba(33, 34, 44, 0.25);
+  --color-dark-rbga010: rgba(33, 34, 44, 0.1);
+
   --bg-base: #21222c;
-  --bg-highlight: #44475a;
   --bg-primary: #282a36;
   --bg-secondary: #343746;
   --bg-tertiary: #424450;
+  --bg-highlight: #44475a;
 
-  --text-highlight: #d6d8e1;
   --text-primary: #f8f8f2;
+  --text-highlight: #d6d8e1;
 
   --color-red: #f55;
   --color-orange: #ffb86c;

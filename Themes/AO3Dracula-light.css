@@ -1,11 +1,18 @@
-* {
+:root {
+  --color-modal-overlay: rgba(188, 186, 179, 0.7);
+
+  --shadow: none;
+  --shadow-main: none;
+
   --bg-base: #bcbab3;
-  --bg-highlight: #ceccc0;
   --bg-primary: #fffbeb;
   --bg-secondary: #dedccf;
   --bg-tertiary: #ece9df;
-  --text-highlight: #343746;
+  --bg-highlight: #ceccc0;
+
   --text-primary: #1f1f1f;
+  --text-highlight: #343746;
+
   --color-red: #cb3a2a;
   --color-orange: #a34d14;
   --color-yellow: #846e15;

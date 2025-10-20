@@ -1,0 +1,34 @@
+:root {
+  --shadow: none;
+  --shadow-main: none;
+
+  --bg-base: #000;
+  --bg-primary: #000;
+  --bg-secondary: #121212;
+  --bg-tertiary: #212121;
+  --bg-highlight: #343434;
+
+  --text-primary: #fff;
+  --text-highlight: #ddd;
+
+  --color-red: #f66;
+  --color-orange: #fa0;
+  --color-yellow: #ff8;
+  --color-green: #8f8;
+  --color-purple: #aaf;
+  --color-blue: #0af;
+
+  --color-selection: #0df;
+  --color-link-action-hover: #d44;
+
+  --element-bg: var(--bg-highlight);
+  --color-fg-question: var(--color-selection);
+
+  --filter-chart-bg: opacity(0);
+  --filter-chart-text: invert(1);
+  --filter-chart-tooltip: invert(1);
+  --filter-chart-guide-even: opacity(0.1);
+  --filter-chart-guide-odd: opacity(0.2);
+
+  --filter-icons: contrast(1.3) saturate(1.3) hue-rotate(8deg);
+}

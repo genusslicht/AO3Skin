@@ -1,3 +1,34 @@
+:root {
+  --color-modal-overlay: rgba(15, 17, 21, 0.7);
+  --color-dark-rbga025: rgba(15, 17, 21, 0.25);
+  --color-dark-rbga010: rgba(15, 17, 21, 0.1);
+  --offset-x: 0;
+  --offset-y: 0.4em;
+  --inset-y: -0.4em;
+  --blur-radius: 0.4em;
+  --spread-radius: 0.4em;
+  --shadow: var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
+  --shadow-inset: inset var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
+  --shadow-main: var(--color-dark-rbga025) 0 0 var(--blur-radius) var(--spread-radius);
+  --comment-img-size: 75px;
+  --border-radius: 0.3em;
+  --border-normal: 0.1em;
+  --border-fat: 0.15em;
+  --spacing-xsmall: 0.15em;
+  --spacing-small: 0.3em;
+  --spacing-normal: 0.6em;
+  --spacing-large: 1.2em;
+  --spacing-xlarge: 1.8em;
+  --font-size-small: 0.9em;
+  --color-fandom-tags: var(--color-selection);
+  --color-mature-tags: var(--color-red);
+  --color-warning-tags: var(--color-orange);
+  --color-platonic-tags: var(--color-yellow);
+  --color-explicit-tags: var(--color-purple);
+  --color-character-tags: var(--color-green);
+  --color-freeform-tags: var(--color-blue);
+}
+
 html,
 body,
 #outer {
@@ -48,14 +79,6 @@ dd.required {
   color: var(--text-primary);
 }
 
-input,
-textarea {
-  border: 0;
-  background: var(--bg-highlight);
-  box-shadow: none;
-  color: var(--text-primary);
-}
-
 kbd,
 tt,
 code,
@@ -67,11 +90,12 @@ samp,
   font-size: 0.857em;
 }
 
-textarea:focus {
-  background: var(--bg-primary);
-  outline: none;
+input,
+textarea {
+  border: 0;
+  background: var(--bg-highlight);
+  box-shadow: none;
   color: var(--text-primary);
-  box-shadow: var(--shadow-inset);
 }
 
 form.search input[type="text"],
@@ -85,15 +109,6 @@ input {
 form.search input[type="text"]:is(:hover),
 input:is(:hover) {
   border-bottom: var(--border-normal) solid var(--color-link-action-hover);
-}
-
-form.search input[type="text"]:is(:focus, :focus-visible),
-input:is(:focus, :focus-visible) {
-  border-bottom: var(--border-fat) solid var(--color-link-action-hover);
-  background: var(--bg-highlight);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-inset);
-  outline: none;
 }
 
 input[type="radio"],
@@ -376,18 +391,26 @@ form.search.simple input[type="text"],
 form.search.simple input[type="text"]:is(:hover),
 #header #search .text:is(:hover) {
   border-bottom: var(--border-normal) solid var(--color-link-action-hover);
-  background: var(--bg-highlight);
   color: var(--text-primary);
   outline: none;
 }
 
+form.search input[type="text"]:is(:focus, :focus-visible),
+input:is(:focus, :focus-visible),
 form.search.simple input[type="text"]:is(:focus, :focus-visible),
-#header #search .text:is(:focus, :focus-visible) {
-  border-bottom: var(--border-fat) solid var(--color-link-action-hover);
-  background: var(--bg-highlight);
+#header #search .text:is(:focus, :focus-visible),
+textarea:focus {
+  background: var(--bg-primary);
   color: var(--text-primary);
   box-shadow: var(--shadow-inset);
   outline: none;
+}
+
+form.search input[type="text"]:is(:focus, :focus-visible),
+input:is(:focus, :focus-visible),
+form.search.simple input[type="text"]:is(:focus, :focus-visible),
+#header #search .text:is(:focus, :focus-visible) {
+  border-bottom: var(--border-fat) solid var(--color-link-action-hover);
 }
 
 form.single.simple .submit,
@@ -481,6 +504,15 @@ form.search.simple .submit input,
 
 #dashboard ul {
   border: 0;
+  padding: var(--spacing-normal) 0;
+}
+
+#dashboard ul:not(:last-child) {
+  border-bottom: var(--border-fat) solid var(--bg-highlight);
+}
+
+#dashboard .secondary {
+  box-shadow: none;
 }
 
 #dashboard {
@@ -490,7 +522,7 @@ form.search.simple .submit input,
 .download a,
 #dashboard a,
 #dashboard span {
-  color: var(--text-highlight);
+  color: var(--text-primary);
   border-radius: var(--border-radius);
 }
 
@@ -517,8 +549,7 @@ form.search.simple .submit input,
 
 .secondary,
 .toggled form,
-.dynamic form,
-#dashboard .secondary {
+.dynamic form {
   background: var(--bg-secondary);
   box-shadow: var(--shadow);
 }
@@ -827,8 +858,65 @@ li.relationships a.tag {
   font-style: oblique 10deg;
 }
 
+.wrapper .work.meta.group {
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.wrapper .work.meta.group dt {
+  display: none;
+}
+
+.wrapper .work.meta.group dd:is(.tags) {
+  width: auto;
+  margin: 0;
+  order: 2;
+}
+
+.wrapper .work.meta.group dd.fandom {
+  order: 1;
+  width: 100%;
+  margin-bottom: var(--spacing-normal);
+}
+
+.wrapper .work.meta.group dd:is(.rating, .category) {
+  order: 0;
+  margin: var(--spacing-normal) 0;
+}
+
+.wrapper .work.meta.group dd:is(.series, .collections) {
+  order: 3;
+  width: 100%;
+  margin-left: 0;
+}
+
+.wrapper .work.meta.group dd:is(.language, .stats) {
+  width: auto;
+  order: 4;
+  margin-right: var(--spacing-large);
+  margin-left: 0;
+}
+
+.wrapper .work.meta.group dd.freeform {
+  margin-bottom: var(--spacing-normal);
+}
+
+.wrapper .work.meta.group dd.tags li {
+  padding: 0 var(--spacing-small) 0 0;
+}
+
 .commas li:after {
-  content: "";
+  content: none;
+}
+
+.tags.commas:has(a.tag, a[data-remote="true"]) {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.tags.commas li {
+  margin: 0;
 }
 
 h2.heading a.tag {
@@ -1157,10 +1245,15 @@ form.single .submit input[type="submit"] {
   vertical-align: inherit;
 }
 
+#skin_media_checkboxes {
+  padding: var(--spacing-small) var(--spacing-normal);
+  border-radius: var(--border-radius);
+}
+
 fieldset fieldset fieldset,
 #skin_media_checkboxes {
   background: var(--bg-secondary);
-  box-shadow: var(--shadow-reverse-inset);
+  box-shadow: none;
 }
 
 .filters .group dt.bookmarker {
@@ -1185,6 +1278,13 @@ fieldset fieldset fieldset,
   border-radius: var(--border-radius);
 }
 
+.filters input[type="text"],
+.filters select,
+.filters li.tag.added,
+.filters dd.autocomplete li.input {
+  font-size: var(--font-size-small);
+}
+
 .filters .expander:before {
   content: "⮞ ";
   position: absolute;
@@ -1199,6 +1299,7 @@ fieldset fieldset fieldset,
   background: none;
   color: var(--text-primary);
   padding: 0 0 0 var(--spacing-large);
+  font-weight: bold;
 }
 
 .filters dt.expanded {
@@ -1218,6 +1319,14 @@ dd.expandable dl.range {
   margin: 0 var(--spacing-small);
 }
 
+.filters .expander:focus-visible:before {
+  color: var(--color-selection);
+}
+
+.filters dt.expanded + dd.expandable {
+  border-top: thin solid var(--color-selection);
+}
+
 .filters [type="checkbox"],
 .filters [type="radio"] {
   position: inherit;
@@ -1226,14 +1335,29 @@ dd.expandable dl.range {
   accent-color: var(--color-selection);
 }
 
+.filters .include dt.expanded + dd.expandable {
+  border-top: thin solid var(--color-green);
+}
 .filters .include [type="checkbox"],
 .filters .include [type="radio"] {
   accent-color: var(--color-green);
 }
 
+.filters .include .expander:focus-visible:before {
+  color: var(--color-green);
+}
+
+.filters .exclude dt.expanded + dd.expandable {
+  border-top: thin solid var(--color-red);
+}
+
 .filters .exclude [type="checkbox"],
 .filters .exclude [type="radio"] {
   accent-color: var(--color-red);
+}
+
+.filters .exclude .expander:focus-visible:before {
+  color: var(--color-red);
 }
 
 .filters [type="radio"] + .indicator,
@@ -1294,28 +1418,37 @@ dd.expandable dl.range {
 }
 
 #ui-datepicker-div {
-  background: var(--text-highlight);
-  color: var(--bg-primary);
+  background: var(--bg-highlight);
+  color: var(--text-primary);
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
+  border: var(--border-normal) solid var(--text-highlight);
 }
 
 #ui-datepicker-div table,
 #ui-datepicker-div th {
-  background: var(--text-primary);
+  background: var(--bg-secondary);
 }
 
-#ui-datepicker-div a,
-#ui-datepicker-div a:link,
-#ui-datepicker-div a:visited {
+#ui-datepicker-div tr:hover {
+  background: var(--bg-highlight);
+}
+
+#ui-datepicker-div td:hover {
+  background: var(--color-selection);
+}
+#ui-datepicker-div td:is(:hover, :focus, :focus-visible):hover a,
+#ui-datepicker-div a:is(:hover, :focus, :focus-visible) {
+  color: var(--bg-primary);
+}
+
+#ui-datepicker-div a {
   font-weight: bold;
-  color: var(--bg-highlight);
   cursor: pointer;
 }
 
 #ui-datepicker-div a:is(:hover, :focus, :focus-visible) {
-  border: 0;
-  text-decoration: underline;
+  color: var(--text-highlight);
 }
 
 .ui-datepicker-calendar td.ui-datepicker-unselectable {
@@ -1327,6 +1460,7 @@ dd.expandable dl.range {
 }
 
 /* autocomplete */
+
 .autocomplete.dropdown {
   background: none;
 }
@@ -1346,7 +1480,9 @@ dd.expandable dl.range {
 }
 
 li.tag.added {
-  padding-right: var(--spacing-large);
+  color: var(--text-primary);
+  padding-right: var(--spacing-xlarge);
+  margin: var(--spacing-small);
 }
 
 .autocomplete div.dropdown ul .odd {
@@ -1371,13 +1507,6 @@ li.tag.added {
 
 dd.autocomplete li.input {
   margin-top: var(--spacing-small);
-}
-
-.filters input[type="text"],
-.filters select,
-li.tag.added,
-dd.autocomplete li.input {
-  font-size: var(--font-size-small);
 }
 
 .autocomplete span.delete {

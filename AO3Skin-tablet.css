@@ -1,4 +1,4 @@
-* {
+:root {
   --comment-img-size: 60px;
 }
 
@@ -21,11 +21,15 @@
 }
 
 #dashboard .secondary {
-  box-shadow: none;
+  background: var(--bg-secondary);
 }
 
 div.preface {
   margin: var(--spacing-large) 0em;
+}
+
+#dashboard ul:not(:last-child) {
+  border: 0;
 }
 
 form.single ul.autocomplete {

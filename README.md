@@ -56,7 +56,6 @@ Reference table of all CSS custom properties used by the skin and their intended
 | `--spread-radius`        | Spread radius used by some shadow presets.                                                              |
 | `--shadow`               | Convenience shadow shorthand (drop shadow).                                                             |
 | `--shadow-inset`         | Convenience inset shadow shorthand.                                                                     |
-| `--shadow-reverse`       | Reverse-direction shadow shorthand (negative offset).                                                   |
 | `--shadow-reverse-inset` | Reverse inset shadow shorthand.                                                                         |
 | `--shadow-main`          | Main glow/soft shadow used for primary elements.                                                        |
 | `--comment-img-size`     | Fixed size used for comment avatar / image elements (default 75px / 60px for tablet / 50px for mobile). |

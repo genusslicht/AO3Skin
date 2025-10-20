@@ -1,0 +1,31 @@
+:root {
+  --shadow: none;
+  --shadow-main: none;
+
+  --bg-base: #fff;
+  --bg-primary: #fff;
+  --bg-secondary: #ededed;
+  --bg-tertiary: #dedede;
+  --bg-highlight: #cdcdcd;
+
+  --text-primary: #000;
+  --text-highlight: #222;
+
+  --color-red: #a00;
+  --color-orange: #b50;
+  --color-yellow: #ca0;
+  --color-green: #090;
+  --color-purple: #44d;
+  --color-blue: #08f;
+
+  --color-selection: #08f;
+  --color-link-action-hover: #900;
+
+  --element-bg: var(--bg-highlight);
+  --color-fg-question: var(--color-blue);
+
+  --filter-chart-bg: opacity(0);
+  --filter-chart-guide-odd: brightness(0.8);
+
+  --filter-icons: brightness(0.8) contrast(1.4) saturate(1.3) hue-rotate(5deg);
+}
