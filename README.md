@@ -27,17 +27,18 @@ The available vaiables and their uses are explained further down.
    - Check: "Parent skin only"
    - Add the tablet skin as parent
    - Choose media: `only screen and (max-width: 42em)`
-4. (Optional) Theme skins (if light/dark differ)
-   - Create one or two theme skins (e.g. `... (light)` / `... (dark)`)
-   - Paste theme CSS for each
+4. (Optional) Extra theme skin (for light/dark differ)
+   - Create a theme css for the mode you don't use as a default (e.g. `... (light)` / `... (dark)`)
+   - Paste theme CSS for the light / dark mode
    - Check: "Parent skin only"
-   - Choose media: "prefers-color-scheme: light" / "prefers-color-scheme: dark"
-5. Create the master skin with variables definition
+   - Choose media: `prefers-color-scheme: light` / `prefers-color-scheme: dark`
+5. Create the master skin
    - Name: `<your-username> My Skin`
-   - Paste the [variables CSS](AO3Skin-variables.css)
-   - _optional_: add any theme variables if only a single theme is used
-   - Add mobile skin and any created dark / light skins as parents
-   - Choose media: `all`
+   - Paste the theme css you want to use
+   - Add mobile skin
+   - Add any created dark / light skins as parents
+   - _optional_ (only if you did step 4.): Choose media: `prefers-color-scheme: light` / `prefers-color-scheme: dark` depending on which mode is your primary
+   - Otherwise: Choose media: `all`
 6. Save and hit "Use" :)
 
 ## Variables
