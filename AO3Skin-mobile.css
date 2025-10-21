@@ -41,13 +41,7 @@
   margin: var(--spacing-small) 0;
   overflow-wrap: break-word;
   order: 0;
-  flex-grow: 1;
-}
-
-.blurb:has(.required-tags) .datetime {
-  order: 1;
-  position: initial;
-  margin-top: var(--spacing-small);
+  margin: var(--spacing-small) 5.25em 0 0;
 }
 
 .blurb:has(.required-tags) .header .required-tags {

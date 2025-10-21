@@ -78,7 +78,7 @@ body,
 #footer button,
 .dropdown {
   color: var(--text-primary);
-  font-family: "Noto Sans", Verdana, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
 
 h1.heading > a > span,
@@ -89,7 +89,7 @@ h4,
 h5,
 h6,
 .heading {
-  font-family: "Fjalla One";
+  font-family: "Fjalla One", sans-serif;
 }
 
 h1,
@@ -378,7 +378,7 @@ a.rss span {
 }
 
 #greeting .user > li.dropdown > a[href^="/users/"]:after {
-  content: "Account";
+  content: "My Account";
   text-indent: 0;
   display: block;
   line-height: initial;
@@ -503,11 +503,12 @@ a.rss span {
 
 #header li.search fieldset {
   position: relative;
+  margin-left: var(--spacing-normal);
 }
 
 #header #search .text {
   padding-left: 1.6em;
-  min-width: 16vw;
+  width: 16vw;
 }
 
 #header li.search fieldset::before {
@@ -848,7 +849,7 @@ span.claimed,
 .actions span.defaulted {
   color: var(--color-red);
   background: unset;
-  font-family: "Noto Sans", Verdana, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
   border: thin solid var(--color-red);
 }
 
@@ -1095,12 +1096,22 @@ li.characters a.tag {
   color: var(--text-highlight);
 }
 
+.blurb h4.heading a:first-child {
+  font-family: "Fjalla One", sans-serif;
+  font-size: 125%;
+  width: 100%;
+  display: inline-block;
+  margin-bottom: var(--spacing-small);
+}
+
 .blurb ul.required-tags li a:is(:hover, :focus, :focus-visible) {
   border: 0;
 }
 
 .blurb .header .heading {
   margin: var(--spacing-small) 5.25em var(--spacing-small) 65px;
+  font-size: 95%;
+  font-family: "Noto Sans", sans-serif;
 }
 
 fieldset fieldset.listbox,
@@ -1309,7 +1320,7 @@ form.verbose legend,
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   box-shadow: none;
   border: 0;
-  font-family: "Fjalla One";
+  font-family: "Fjalla One", sans-serif;
   font-size: 1.2em;
 }
 
@@ -1755,5 +1766,5 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 #stat_chart text {
-  font-family: "Noto Sans", Verdana, "Trebuchet MS", "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", sans-serif;
+  font-family: "Noto Sans", sans-serif;
 }
