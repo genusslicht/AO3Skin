@@ -6,18 +6,18 @@
   background: var(--bg-base);
 }
 
-#header nav[aria-label="Site"] {
-  order: 2;
-  width: 100%;
-  padding-bottom: 0;
-}
-
-#header #greeting {
-  order: 1;
+#greeting p.icon {
+  display: none;
 }
 
 #header .user .open > a:focus {
   color: var(--text-primary);
+}
+
+#dashboard,
+#dashboard.own {
+  position: initial;
+  top: unset;
 }
 
 #dashboard .secondary {
@@ -32,6 +32,7 @@ div.preface {
   border: 0;
 }
 
+form.single span.submit,
 form.single ul.autocomplete {
   display: inline-block;
 }

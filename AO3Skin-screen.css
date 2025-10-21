@@ -1,5 +1,5 @@
 :root {
-  --color-modal-overlay: rgba(15, 17, 21, 0.7);
+  --color-dark-rbga070: rgba(15, 17, 21, 0.7);
   --color-dark-rbga025: rgba(15, 17, 21, 0.25);
   --color-dark-rbga010: rgba(15, 17, 21, 0.1);
   --offset-x: 0;
@@ -9,7 +9,6 @@
   --spread-radius: 0.4em;
   --shadow: var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
   --shadow-inset: inset var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
-  --shadow-main: var(--color-dark-rbga025) 0 0 var(--blur-radius) var(--spread-radius);
   --comment-img-size: 75px;
   --border-radius: 0.3em;
   --border-normal: 0.1em;
@@ -20,6 +19,8 @@
   --spacing-large: 1.2em;
   --spacing-xlarge: 1.8em;
   --font-size-small: 0.9em;
+  --form-element-padding: 0.2em var(--spacing-small);
+  --color-modal-overlay: var(--color-dark-rbga070);
   --color-fandom-tags: var(--color-selection);
   --color-mature-tags: var(--color-red);
   --color-warning-tags: var(--color-orange);
@@ -27,6 +28,12 @@
   --color-explicit-tags: var(--color-purple);
   --color-character-tags: var(--color-green);
   --color-freeform-tags: var(--color-blue);
+
+  --main-font-size: 0.85em;
+  --dashboard-font-size: 0.85em;
+  --header-font-size: 0.85em;
+  --footer-font-size: 0.75em;
+  --code-font-size: 0.85em;
 }
 
 html,
@@ -35,6 +42,22 @@ body,
   color: var(--text-primary);
   background: var(--bg-base);
   background-size: cover;
+}
+
+#header {
+  font-size: var(--header-font-size);
+}
+
+#footer {
+  font-size: var(--footer-font-size);
+}
+
+#main {
+  font-size: var(--main-font-size);
+}
+
+#dashboard {
+  font-size: var(--dashboard-font-size);
 }
 
 html,
@@ -69,6 +92,23 @@ h6,
   font-family: "Fjalla One";
 }
 
+h1,
+h2 {
+  font-size: 1.4em;
+}
+
+h3 {
+  font-size: 1.2em;
+}
+
+h4 {
+  font-size: 1.1em;
+}
+
+h5 {
+  font-size: 0.9em;
+}
+
 .home .header h2 {
   border: 0;
 }
@@ -87,28 +127,79 @@ pre,
 samp,
 #skin_css {
   font-family: "Martian Mono", "Monaco", "Consolas", Courier, monospace;
-  font-size: 0.857em;
+  font-size: var(--code-font-size);
+}
+
+textarea {
+  border: thin solid var(--bg-highlight);
+  box-shadow: none;
+  background: var(--bg-highlight);
+  color: var(--text-highlight);
+  width: -moz-available;
 }
 
 input,
-textarea {
-  border: 0;
-  background: var(--bg-highlight);
+#main form.search input[type="text"],
+#main form.search.simple input[type="text"],
+#header #search .text {
+  margin: 0;
+  border: thin solid var(--bg-highlight);
   box-shadow: none;
+  background: var(--bg-highlight);
+  color: var(--text-highlight);
+  border-radius: var(--border-radius);
+  padding: var(--form-element-padding);
+}
+
+input:is(:hover),
+#main form.search input[type="text"]:is(:hover),
+#main form.search.simple input[type="text"]:is(:hover),
+#header #search .text:is(:hover),
+textarea:hover {
   color: var(--text-primary);
+  border: thin solid var(--text-highlight);
 }
 
-form.search input[type="text"],
-input {
-  border-bottom: var(--border-normal) solid var(--text-highlight);
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  width: -moz-available;
-  padding: var(--spacing-small) var(--spacing-normal);
+input:is(:focus, :focus-visible),
+#main form.search input[type="text"]:is(:focus, :focus-visible),
+#main form.search.simple input[type="text"]:is(:focus, :focus-visible),
+#header #search .text:is(:focus, :focus-visible),
+textarea:focus {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-inset);
+  border: thin solid var(--color-link-action-hover);
+  outline: none;
 }
 
-form.search input[type="text"]:is(:hover),
-input:is(:hover) {
-  border-bottom: var(--border-normal) solid var(--color-link-action-hover);
+/* form.single.simple .submit,
+form.search.simple .submit {
+  display: inline;
+  float: none;
+  padding: 0 var(--spacing-small) var(--spacing-small) 0;
+  text-align: center;
+} */
+
+#main form.single.simple .submit input,
+#main form.search.simple .submit input,
+#header #search .submit input {
+  border: thin solid var(--bg-highlight);
+  border-radius: var(--border-radius);
+  box-shadow: none;
+  background: var(--bg-highlight);
+  color: var(--text-highlight);
+  padding: var(--form-element-padding);
+  margin: 0;
+}
+
+#main form.single.simple .submit input:is(:hover, :focus, :focus-visible),
+#main form.search.simple .submit input:is(:hover, :focus, :focus-visible),
+#header #search .submit input:is(:hover, :focus, :focus-visible) {
+  border: thin solid var(--color-link-action-hover);
+  background: var(--color-link-action-hover);
+  color: var(--bg-primary);
+  box-shadow: none;
+  margin: 0;
 }
 
 input[type="radio"],
@@ -127,7 +218,7 @@ select {
   border: thin solid var(--text-highlight);
   border-radius: var(--border-radius);
   color: var(--text-primary);
-  padding: var(--spacing-small) var(--spacing-normal);
+  padding: var(--form-element-padding);
   vertical-align: middle;
 }
 
@@ -137,7 +228,6 @@ select:is(:focus, :focus-visible) {
 
 #main {
   background: var(--bg-primary);
-  box-shadow: var(--shadow-main);
   padding-top: var(--spacing-large);
 }
 
@@ -227,24 +317,36 @@ a.rss span {
 
 /* header */
 
+#header:has(+ #inner > #main:not(.chapters-show, .works-show)) {
+  position: sticky;
+}
+
 #header {
-  padding-bottom: var(--spacing-large);
+  padding: var(--spacing-normal);
   display: flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: left;
   flex-flow: row wrap;
+  top: 0;
+  z-index: 10;
+  background: var(--bg-base);
+  margin: 0;
+  box-shadow: var(--shadow);
 }
 
 #header > h1.heading {
   order: 0;
-  flex-grow: 1;
-  padding: var(--spacing-normal) 1.2em 0;
+  flex-grow: 0;
+  padding: 0;
+}
+
+#header > h1.heading a {
+  font-size: 1.2em;
 }
 
 #header nav {
   order: 1;
   flex-grow: 1;
-  padding: var(--spacing-normal) 0 0;
+  padding: 0;
 }
 
 #header #greeting {
@@ -267,7 +369,19 @@ a.rss span {
 
 #greeting .user > li,
 #header .primary > li {
-  margin: var(--spacing-normal) var(--spacing-xsmall);
+  margin: 0 var(--spacing-xsmall);
+}
+
+#greeting .user > li.dropdown > a[href^="/users/"] {
+  text-indent: -9999px;
+  line-height: 0;
+}
+
+#greeting .user > li.dropdown > a[href^="/users/"]:after {
+  content: "Account";
+  text-indent: 0;
+  display: block;
+  line-height: initial;
 }
 
 #header .primary a,
@@ -283,9 +397,13 @@ a.rss span {
 
 #header .primary {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   flex-flow: row wrap;
   align-items: flex-end;
+}
+
+#header .primary > li:first-of-type {
+  margin-left: var(--spacing-large);
 }
 
 #header #search .text {
@@ -375,87 +493,31 @@ a.rss span {
   border-radius: 1em;
 }
 
-form.search.simple input[type="text"],
+#header li.search {
+  padding-left: 0 var(--spacing-normal);
+}
+
+#header li.search form label {
+  display: none;
+}
+
+#header li.search fieldset {
+  position: relative;
+}
+
 #header #search .text {
-  margin: 0;
-  border: 0;
-  border-bottom: var(--border-normal) solid var(--text-highlight);
-  box-shadow: none;
-  background: var(--bg-highlight);
-  color: var(--text-highlight);
-  border-radius: var(--border-radius) 0 0 0;
-  padding: var(--spacing-small) var(--spacing-normal);
-  width: auto;
+  padding-left: 1.6em;
+  min-width: 16vw;
 }
 
-form.search.simple input[type="text"]:is(:hover),
-#header #search .text:is(:hover) {
-  border-bottom: var(--border-normal) solid var(--color-link-action-hover);
-  color: var(--text-primary);
-  outline: none;
+#header li.search fieldset::before {
+  padding-top: 0.1em;
+  left: var(--spacing-small);
 }
 
-form.search input[type="text"]:is(:focus, :focus-visible),
-input:is(:focus, :focus-visible),
-form.search.simple input[type="text"]:is(:focus, :focus-visible),
-#header #search .text:is(:focus, :focus-visible),
-textarea:focus {
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  box-shadow: var(--shadow-inset);
-  outline: none;
-}
-
-form.search input[type="text"]:is(:focus, :focus-visible),
-input:is(:focus, :focus-visible),
-form.search.simple input[type="text"]:is(:focus, :focus-visible),
-#header #search .text:is(:focus, :focus-visible) {
-  border-bottom: var(--border-fat) solid var(--color-link-action-hover);
-}
-
-form.single.simple .submit,
-form.search.simple .submit,
-#header #search .submit {
-  display: inline;
-  float: none;
-  padding: 0 var(--spacing-small) var(--spacing-small) 0;
-  text-align: center;
-}
-
-form.single.simple .submit input,
-form.search.simple .submit input,
-#header #search .submit input {
-  border-bottom: var(--border-normal) solid var(--text-highlight);
-  border-radius: 0 var(--border-radius) 0 0;
-  box-shadow: none;
-  background: var(--bg-highlight);
-  color: var(--text-highlight);
-  padding: var(--spacing-small) var(--spacing-normal);
-  margin: 0;
-}
-
-#main form.single.simple .submit input,
-#main form.search.simple .submit input {
-  background: var(--bg-highlight);
-}
-
-#main form.single.simple .submit input:is(:hover, :focus, :focus-visible),
-#main form.search.simple .submit input:is(:hover, :focus, :focus-visible),
-#header #search .submit input:is(:hover, :focus, :focus-visible) {
-  color: var(--color-link-action-hover);
-  border-color: var(--color-link-action-hover);
-  box-shadow: none;
-  margin: 0;
-}
-
-#main form.search.simple .text:hover + .submit input,
-#header #search .text:hover + span + .submit input {
-  border-bottom: var(--border-normal) solid var(--color-link-action-hover);
-}
-
-#main form.search.simple .text:focus + .submit input,
-#header #search .text:focus + span + .submit input {
-  border-bottom: var(--border-fat) solid var(--color-link-action-hover);
+#header #search .button,
+#header #search span.actions {
+  display: none;
 }
 
 #site_search_tooltip {
@@ -500,6 +562,8 @@ form.search.simple .submit input,
 #dashboard,
 #dashboard.own {
   border: 0;
+  position: sticky;
+  top: 4em;
 }
 
 #dashboard ul {
@@ -513,10 +577,6 @@ form.search.simple .submit input,
 
 #dashboard .secondary {
   box-shadow: none;
-}
-
-#dashboard {
-  font-size: 0.95em;
 }
 
 .download a,
@@ -812,7 +872,7 @@ span.claimed,
 a.tag {
   border-radius: 1em;
   margin: var(--spacing-small) 0;
-  font-size: 0.9em;
+  font-size: var(--font-size-small);
   padding: 0 var(--spacing-normal);
   font-weight: normal;
   border: var(--border-normal) solid;
@@ -940,10 +1000,10 @@ h2.heading a.tag:is(:hover, :focus, :focus-visible) {
 .listbox .heading a.tag:visited:is(:hover, :focus, :focus-visible),
 dd.fandom.tags a.tag,
 h5.fandoms.heading a.tag {
-  color: var(--bg-primary);
+  color: var(--color-fandom-tags);
   border-color: var(--color-fandom-tags);
-  background: var(--color-fandom-tags);
-  font-size: 0.92em;
+  background: unset;
+  font-size: 1em;
 }
 
 dd.warning a.tag,
@@ -1039,22 +1099,8 @@ li.characters a.tag {
   border: 0;
 }
 
-.blurb:has(.required-tags) h4.heading {
-  text-align: center;
-}
-
-.blurb h4.heading a:first-of-type {
-  display: block;
-  font-size: 1.2em;
-  margin-bottom: var(--spacing-normal);
-}
-
 .blurb .header .heading {
   margin: var(--spacing-small) 5.25em var(--spacing-small) 65px;
-}
-
-h5.fandoms.heading {
-  text-align: center;
 }
 
 fieldset fieldset.listbox,
@@ -1063,6 +1109,39 @@ fieldset fieldset.listbox,
   padding: 0;
   border: 0;
   box-shadow: var(--shadow);
+}
+
+li.search fieldset {
+  font-size: 100%;
+  background: transparent;
+  position: relative;
+}
+
+li.search fieldset::before {
+  position: absolute;
+  z-index: 1;
+  font-weight: bold;
+  font-size: 125%;
+  color: var(--text-highlight);
+  content: "\002315";
+  filter: opacity(0.5);
+}
+
+li.search:has(.text:is(:hover, :focus)) fieldset::before {
+  filter: opacity(1);
+}
+
+#main li.search fieldset::before {
+  padding-top: 0;
+  left: var(--spacing-small);
+}
+
+#main li.search input[type="text"].text {
+  padding-left: 1.6em;
+}
+
+#main li.search input[type="submit"] {
+  display: none;
 }
 
 .listbox .index {
@@ -1237,9 +1316,17 @@ form.verbose legend,
 form.verbose #advanced_skin legend {
   background: var(--bg-tertiary);
 }
+form.single fieldset {
+  margin: 0;
+}
+
+form.single .autocomplete li.input {
+  margin: 0;
+}
 
 form.single .autocomplete input[type="text"] {
   width: auto;
+  margin: 0;
 }
 form.single .submit input[type="submit"] {
   vertical-align: inherit;
@@ -1258,6 +1345,18 @@ fieldset fieldset fieldset,
 
 .filters .group dt.bookmarker {
   border-color: var(--bg-highlight);
+}
+
+.filters input[type="text"] {
+  width: -moz-available;
+}
+
+.filters dl > dd.submit:first-of-type input {
+  margin: 0 0 var(--spacing-large) 0;
+}
+
+.filters dl > dd.submit:last-of-type input {
+  margin: var(--spacing-large) 0 0 0;
 }
 
 .filters .submit input {
@@ -1286,12 +1385,12 @@ fieldset fieldset fieldset,
 }
 
 .filters .expander:before {
-  content: "⮞ ";
+  content: "\21F2";
   position: absolute;
   left: 0;
 }
 .filters .expanded .expander:before {
-  content: "⮟ ";
+  content: "\21F1";
 }
 
 .filters .expanded .expander,

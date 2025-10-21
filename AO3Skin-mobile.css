@@ -2,15 +2,62 @@
   --comment-img-size: 50px;
 }
 
+#header nav[aria-label="Site"] {
+  order: 2;
+  width: 100%;
+}
+
+#header #greeting {
+  order: 1;
+}
+
+#header .primary {
+  justify-content: center;
+}
+
+#header .primary > li:first-of-type {
+  margin-left: 0;
+}
+
+#header .primary .search {
+  margin: var(--spacing-small) 0;
+  order: -1;
+  width: 100%;
+}
+
+#header #search .text {
+  min-width: 35vw;
+}
+
+.blurb .header.module:has(.required-tags) {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  align-items: start;
+  margin: 0;
+}
+
 .blurb:has(.required-tags) .header .heading {
-  margin: var(--spacing-small) var(--spacing-normal);
+  margin: var(--spacing-small) 0;
   overflow-wrap: break-word;
+  order: 0;
+  flex-grow: 1;
 }
 
 .blurb:has(.required-tags) .datetime {
+  order: 1;
   position: initial;
-  text-align: center;
   margin-top: var(--spacing-small);
+}
+
+.blurb:has(.required-tags) .header .required-tags {
+  order: 2;
+  margin: var(--spacing-small) auto;
+}
+
+.blurb:has(.required-tags) .header h5.fandoms {
+  order: 3;
+  margin-bottom: 0;
 }
 
 a.tag,
