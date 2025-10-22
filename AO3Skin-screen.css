@@ -2,38 +2,59 @@
   --color-dark-rbga070: rgba(15, 17, 21, 0.7);
   --color-dark-rbga025: rgba(15, 17, 21, 0.25);
   --color-dark-rbga010: rgba(15, 17, 21, 0.1);
+
   --offset-x: 0;
   --offset-y: 0.4em;
-  --inset-y: -0.4em;
   --blur-radius: 0.4em;
-  --spread-radius: 0.4em;
-  --shadow: var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
-  --shadow-inset: inset var(--color-dark-rbga025) var(--offset-x) var(--offset-y) var(--blur-radius);
+
+  --shadow: var(--color-dark-rbga025) 0 0.4em 0.4em;
+  --shadow-inset: inset var(--color-dark-rbga025) 0 0.4em 0.4em;
+
   --comment-img-size: 75px;
+
   --border-radius: 0.3em;
   --border-normal: 0.1em;
   --border-fat: 0.15em;
+
   --spacing-xsmall: 0.15em;
   --spacing-small: 0.3em;
   --spacing-normal: 0.6em;
   --spacing-large: 1.2em;
   --spacing-xlarge: 1.8em;
+
+  --font-size-xlarge: 1.4em;
+  --font-size-large: 1.2em;
+  --font-size-big: 1.1em;
+  --font-size-normal: 1em;
   --font-size-small: 0.9em;
+  --font-size-xsmall: 0.85em;
+  --font-size-tiny: 0.75em;
+
   --form-element-padding: 0.2em var(--spacing-small);
+
   --color-modal-overlay: var(--color-dark-rbga070);
+
   --color-fandom-tags: var(--color-selection);
+  --color-explicit-tags: var(--color-purple);
   --color-mature-tags: var(--color-red);
   --color-warning-tags: var(--color-orange);
   --color-platonic-tags: var(--color-yellow);
-  --color-explicit-tags: var(--color-purple);
   --color-character-tags: var(--color-green);
   --color-freeform-tags: var(--color-blue);
 
-  --main-font-size: 0.85em;
-  --dashboard-font-size: 0.85em;
-  --header-font-size: 0.85em;
-  --footer-font-size: 0.75em;
-  --code-font-size: 0.85em;
+  --color-earmark-explicit-rating: var(--color-purple);
+  --color-earmark-mature-rating: var(--color-red);
+  --color-earmark-teen-rating: var(--color-yellow);
+  --color-earmark-gen-rating: var(--color-green);
+
+  --earmark-corner-size: 3em;
+
+  --main-font-size: var(--font-size-xsmall);
+  --dashboard-font-size: var(--font-size-xsmall);
+  --header-font-size: var(--font-size-xsmall);
+  --footer-font-size: var(--font-size-tiny);
+  --tag-font-size: var(--font-size-normal);
+  --code-font-size: var(--font-size-xsmall);
 }
 
 html,
@@ -58,6 +79,16 @@ body,
 
 #dashboard {
   font-size: var(--dashboard-font-size);
+}
+
+#header h1.heading a span,
+#header h1.heading a sup,
+#header h1.heading a img {
+  display: none;
+}
+
+#header h1.heading a:before {
+  content: "AO3";
 }
 
 html,
@@ -94,19 +125,23 @@ h6,
 
 h1,
 h2 {
-  font-size: 1.4em;
+  font-size: var(--font-size-xlarge);
 }
 
 h3 {
-  font-size: 1.2em;
+  font-size: var(--font-size-large);
 }
 
 h4 {
-  font-size: 1.1em;
+  font-size: var(--font-size-big);
 }
 
 h5 {
-  font-size: 0.9em;
+  font-size: var(--font-size-small);
+}
+
+h6 {
+  font-size: var(--font-size-xsmall);
 }
 
 .home .header h2 {
@@ -340,7 +375,7 @@ a.rss span {
 }
 
 #header > h1.heading a {
-  font-size: 1.2em;
+  font-size: var(--font-size-large);
 }
 
 #header nav {
@@ -352,7 +387,6 @@ a.rss span {
 #header #greeting {
   order: 2;
   display: flex;
-  align-items: center;
   justify-content: flex-end;
   flex-flow: row wrap;
 }
@@ -404,10 +438,6 @@ a.rss span {
 
 #header .primary > li:first-of-type {
   margin-left: var(--spacing-large);
-}
-
-#header #search .text {
-  margin-right: 0;
 }
 
 #header .user > li > a,
@@ -489,12 +519,13 @@ a.rss span {
   border-radius: var(--border-radius);
 }
 
-#greeting img.icon {
-  border-radius: 1em;
+#greeting p.icon {
+  display: none;
 }
 
 #header li.search {
   padding-left: 0 var(--spacing-normal);
+  order: -1;
 }
 
 #header li.search form label {
@@ -507,13 +538,14 @@ a.rss span {
 }
 
 #header #search .text {
-  padding-left: 1.6em;
-  width: 16vw;
+  margin-right: 0;
+  padding-right: 1.6em;
+  width: 20vw;
 }
 
 #header li.search fieldset::before {
-  padding-top: 0.1em;
-  left: var(--spacing-small);
+  padding: var(--spacing-xsmall) var(--spacing-small);
+  right: 0;
 }
 
 #header #search .button,
@@ -873,7 +905,7 @@ span.claimed,
 a.tag {
   border-radius: 1em;
   margin: var(--spacing-small) 0;
-  font-size: var(--font-size-small);
+  font-size: var(--tag-font-size);
   padding: 0 var(--spacing-normal);
   font-weight: normal;
   border: var(--border-normal) solid;
@@ -982,7 +1014,7 @@ li.relationships a.tag {
 
 h2.heading a.tag {
   margin: 0;
-  font-size: 1em;
+  font-size: var(--tag-font-size);
   border: 0;
   font-weight: unset;
   box-shadow: none;
@@ -1004,7 +1036,7 @@ h5.fandoms.heading a.tag {
   color: var(--color-fandom-tags);
   border-color: var(--color-fandom-tags);
   background: unset;
-  font-size: 1em;
+  font-size: var(--tag-font-size);
 }
 
 dd.warning a.tag,
@@ -1098,7 +1130,7 @@ li.characters a.tag {
 
 .blurb h4.heading a:first-child {
   font-family: "Fjalla One", sans-serif;
-  font-size: 125%;
+  font-size: var(--font-size-large);
   width: 100%;
   display: inline-block;
   margin-bottom: var(--spacing-small);
@@ -1110,7 +1142,7 @@ li.characters a.tag {
 
 .blurb .header .heading {
   margin: var(--spacing-small) 5.25em var(--spacing-small) 65px;
-  font-size: 95%;
+  font-size: var(--font-size-normal);
   font-family: "Noto Sans", sans-serif;
 }
 
@@ -1123,7 +1155,7 @@ fieldset fieldset.listbox,
 }
 
 li.search fieldset {
-  font-size: 100%;
+  font-size: var(--font-size-normal);
   background: transparent;
   position: relative;
 }
@@ -1132,23 +1164,28 @@ li.search fieldset::before {
   position: absolute;
   z-index: 1;
   font-weight: bold;
-  font-size: 125%;
+  font-size: var(--font-size-large);
   color: var(--text-highlight);
   content: "\002315";
   filter: opacity(0.5);
 }
 
-li.search:has(.text:is(:hover, :focus)) fieldset::before {
+li.search:has(.text:hover) fieldset::before {
   filter: opacity(1);
 }
 
+li.search:has(.text:focus) fieldset::before {
+  filter: opacity(1);
+  color: var(--color-link-action-hover);
+}
+
 #main li.search fieldset::before {
-  padding-top: 0;
-  left: var(--spacing-small);
+  padding: 0.05em var(--spacing-small);
+  right: var(--spacing-xsmall);
 }
 
 #main li.search input[type="text"].text {
-  padding-left: 1.6em;
+  padding-right: 1.6em;
 }
 
 #main li.search input[type="submit"] {
@@ -1192,6 +1229,17 @@ li.comment.group {
 .works-show .wrapper {
   background: var(--bg-secondary);
   border-radius: var(--border-radius);
+}
+
+div.preface .byline a {
+  font-family: "Noto Sans", sans-serif;
+  font-size: var(--font-size-xsmall);
+}
+
+.reading .deleted h4.viewed,
+.reading h4.viewed {
+  font-family: "Noto Sans", sans-serif;
+  font-size: var(--font-size-small);
 }
 
 .reading .deleted h4.viewed,
@@ -1321,7 +1369,7 @@ form.verbose legend,
   box-shadow: none;
   border: 0;
   font-family: "Fjalla One", sans-serif;
-  font-size: 1.2em;
+  font-size: var(--font-size-large);
 }
 
 form.verbose #advanced_skin legend {
@@ -1640,7 +1688,7 @@ dd.autocomplete li.input {
 /* question */
 
 a.question {
-  font-size: 0.85em;
+  font-size: var(--font-size-xsmall);
 }
 
 span.symbol {
@@ -1767,4 +1815,221 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 
 #stat_chart text {
   font-family: "Noto Sans", sans-serif;
+}
+
+/** ------------- **/
+/** REPLACE ICONS **/
+/** ------------- **/
+
+/* Hide default icons in symbol explanation popup */
+#bookmark-symbols-key dt img,
+#symbols-key dd dt img {
+  display: none;
+}
+
+/* Create new pseudo element for our new icons in symbol explanation popup */
+#bookmark-symbols-key dt:has(img):before,
+#symbols-key dd dt:has(img):before {
+  content: "";
+  display: inline-block;
+  width: 25px;
+  height: 25px;
+}
+
+/** QUARTETT ICONS **/
+
+/* Ratings */
+#symbols-key dd dt:has(img[alt="G"]):before,
+.required-tags .rating-general-audience {
+  background: center no-repeat url(https://ucarecdn.com/2dd37d92-6d10-4658-a46e-e96c7ff553b9/generalaudience.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="T"]):before,
+.required-tags .rating-teen {
+  background: center no-repeat url(https://ucarecdn.com/a65feb09-50d8-49d9-9c20-a0c6b7b49856/teen.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="M"]):before,
+.required-tags .rating-mature {
+  background: center no-repeat url(https://ucarecdn.com/7838f28f-8f72-49b0-9d20-f5f7a5fa8ae5/mature.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="E"]):before,
+.required-tags .rating-explicit {
+  background: center no-repeat url(https://ucarecdn.com/06c90ebd-009b-47b1-a301-ef044cb65c10/explicit.png);
+  background-size: 22px;
+}
+
+/* Relationship */
+#symbols-key dd dt:has(img[alt="M/M"]):before,
+.required-tags .category-slash {
+  background: center no-repeat url(https://ucarecdn.com/6b3e121d-9333-4353-b27b-33dffce84466/slash.png);
+  background-size: 25px;
+}
+
+#symbols-key dd dt:has(img[alt="F/F"]):before,
+.required-tags .category-femslash {
+  background: center no-repeat url(https://ucarecdn.com/d2e3edbe-b9d4-4da6-b2fb-8f002f94b4c4/femslash.png);
+  background-size: 25px;
+}
+
+#symbols-key dd dt:has(img[alt="F/M"]):before,
+.required-tags .category-het {
+  background: center no-repeat url(https://ucarecdn.com/f45c6f54-9a35-4d1d-b1da-6faef196a747/het.png);
+  background-size: 25px;
+}
+
+#symbols-key dd dt:has(img[alt="Multi"]):before,
+.required-tags .category-multi {
+  background: center no-repeat url(https://ucarecdn.com/993945db-d382-40e6-b00c-d37276bcff99/poly.png);
+  background-size: 25px;
+}
+
+#symbols-key dd dt:has(img[alt="Other"]):before,
+.required-tags .category-other {
+  background: center no-repeat url(https://ucarecdn.com/9b575b5d-f6f6-45be-ac1e-1922a0c75834/other.png);
+  background-size: 22px;
+}
+
+/* Warnings */
+#symbols-key dd dt:has(img[alt="Gen"]):before,
+.required-tags .category-gen {
+  background: center no-repeat url(https://ucarecdn.com/82261a52-d4f8-4459-9dcf-7dda53d0e64e/gen.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="questioned exclamation mark"]):before,
+.required-tags .warning-choosenotto {
+  background: center no-repeat url(https://ucarecdn.com/945ac583-3a30-4b90-b48c-618fd0909bc5/choosenotto.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="exclamation mark"]):before,
+.required-tags .warning-yes {
+  background: center no-repeat url(https://ucarecdn.com/5d6996e4-7a13-46bf-a586-9cc378820444/nsfw.png);
+  background-size: 22px;
+}
+
+#symbols-key dd dt:has(img[alt="globe"]):before,
+.required-tags .external-work {
+  background: center no-repeat url(https://ucarecdn.com/57f608ef-b402-473c-b614-b0d9bd2351ef/globe.png);
+  background-size: 22px;
+}
+
+/* Completion Status */
+#symbols-key dd dt:has(img[alt="ticky"]):before,
+.required-tags .complete-yes {
+  background: center no-repeat url(https://ucarecdn.com/c817e2b6-ee9c-4fdc-9684-64cf9f6c4030/complete.png);
+  background-size: 25px;
+}
+
+#symbols-key dd dt:has(img[alt="stop sign"]):before,
+.required-tags .complete-no {
+  background: center no-repeat url(https://ucarecdn.com/4131de52-2dc8-4e6c-8bad-d283ecab1dba/incomplete.png);
+  background-size: 22px;
+}
+
+/* Category None / Blank */
+#symbols-key dd dt:has(img[alt="blank square"]):before,
+.required-tags .rating-notrated,
+.required-tags .category-none,
+.required-tags .warning-no {
+  background: transparent;
+  background-size: 22px;
+}
+
+/** BOOKMARK ICONS **/
+/* removes the white square under the bookmark count number */
+.bookmark .status .count {
+  background: transparent;
+  background-size: 25px;
+}
+
+#bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
+.bookmark .status .private .text {
+  background: center no-repeat url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
+  background-size: 25px;
+}
+
+#bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
+.bookmark .status .public {
+  background: center no-repeat url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
+  background-size: 25px;
+}
+
+#bookmark-symbols-key dt:has(img[alt="Rec"])::before,
+.bookmark .status .rec {
+  background: center no-repeat url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
+  background-size: 25px;
+}
+
+#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before,
+.bookmark .status .hidden {
+  background: center no-repeat url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
+  background-size: 25px;
+}
+
+/* ARCHIVE LOCKED FICS */
+
+.heading:has(img[title="Restricted"]) img {
+  content: url(https://ucarecdn.com/5dddab40-9972-4421-addb-d02b627e748e/locked.png);
+  height: auto;
+}
+
+#bookmark-symbols-key dt:has(img):before,
+#symbols-key dd dt:has(img):before,
+.required-tags span:is(.category, .rating, .warnings, .iswip),
+#bookmark-symbols-key dt:has(img[alt])::before,
+.bookmark .status span:is(.rec, .public, .private, .hidden),
+.heading:has(img[title="Restricted"]) img {
+  filter: var(--filter-icons);
+}
+
+/** ------------------- **/
+/** WORK RATING EARMARK **/
+/** ------------------- **/
+
+.work.meta.group,
+li.work.blurb {
+  z-index: 0;
+}
+
+.work.meta.group:has(.tags.rating a.tag[href*="/tags/Explicit/"]):before,
+.work.blurb:has(.rating-explicit):before {
+  background: linear-gradient(225deg, var(--color-earmark-explicit-rating) 0%, transparent var(--earmark-corner-size));
+}
+
+.work.meta.group:has(.tags.rating a.tag[href*="/tags/Mature/"]):before,
+.work.blurb:has(.rating-mature):before {
+  background: linear-gradient(225deg, var(--color-earmark-mature-rating) 0%, transparent var(--earmark-corner-size));
+}
+
+.work.meta.group:has(.tags.rating a.tag[href*="/tags/Teen%20And%20Up%20Audiences/"]):before,
+.work.blurb:has(.rating-teen):before {
+  background: linear-gradient(225deg, var(--color-earmark-teen-rating) 0%, transparent var(--earmark-corner-size));
+}
+
+.work.meta.group:has(.tags.rating a.tag[href*="/tags/General%20Audiences/"]):before,
+.work.blurb:has(.rating-general-audience)::before {
+  background: linear-gradient(225deg, var(--color-earmark-gen-rating) 0%, transparent var(--earmark-corner-size));
+}
+
+.work.meta.group:before,
+.work.blurb:before {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  border-radius: var(--border-radius); /* only relevant if work card has a rounded upper right border */
+}
+
+.work.meta.group > .rating.tags,
+#main > .wrapper .work.meta dt {
+  display: none;
 }

@@ -10,36 +10,29 @@ The available vaiables and their uses are explained further down.
 
 ## Installation / Setup (AO3 Skin editor)
 
-1. Create the screen skin
+1. Create parent skin with basic styling
    - Name: `<your-username> My Skin (screen)`
    - Paste the [screen CSS](AO3Skin-screen.css)
    - Check: "Parent skin only"
    - Choose media: `screen`
-2. Create the tablet skin
+2. Create parent skin for tablet
    - Name: `<your-username> My Skin (tablet)`
    - Paste the [tablet CSS](AO3Skin-tablet.css)
    - Check: "Parent skin only"
-   - Add the screen skin as parent
+   - Add the previously created screen skin as parent
    - Choose media: `only screen and (max-width: 62em)` and `only screen and (max-width: 42em)`
-3. Create the mobile skin
+3. Create parent skin for mobile
    - Name: `<your-username> My Skin (mobile)`
    - Paste the [mobile CSS](AO3Skin-mobile.css)
    - Check: "Parent skin only"
-   - Add the tablet skin as parent
+   - Add the previously created tablet skin as parent
    - Choose media: `only screen and (max-width: 42em)`
-4. (Optional) Extra theme skin (for light/dark differ)
-   - Create a theme css for the mode you don't use as a default (e.g. `... (light)` / `... (dark)`)
-   - Paste theme CSS for the light / dark mode
-   - Check: "Parent skin only"
-   - Choose media: `prefers-color-scheme: light` / `prefers-color-scheme: dark`
-5. Create the master skin
+4. Create the master skin
    - Name: `<your-username> My Skin`
    - Paste the theme css you want to use
-   - Add mobile skin
-   - Add any created dark / light skins as parents
-   - _optional_ (only if you did step 4.): Choose media: `prefers-color-scheme: light` / `prefers-color-scheme: dark` depending on which mode is your primary
-   - Otherwise: Choose media: `all`
-6. Save and hit "Use" :)
+   - Add previously created mobile skin
+   - Choose media: `screen`
+5. Save and hit "Use" :)
 
 ## Variables
 
@@ -47,7 +40,7 @@ Reference table of all CSS custom properties used by the skin and their intended
 
 | Variable                 | Use / purpose                                                                                           |
 | ------------------------ | ------------------------------------------------------------------------------------------------------- |
-| `--color-modal-overlay`  | Modal/dialog background overlay color (semi‑transparent overlay).                                       |
+| `--color-dark-rgba070`   | Modal/dialog background overlay color (semi‑transparent overlay).                                       |
 | `--color-dark-rbga025`   | Reusable dark color at 25% alpha used for shadows and subtle overlays.                                  |
 | `--color-dark-rbga010`   | Reusable dark color at 10% alpha for very subtle overlays.                                              |
 | `--offset-x`             | X offset for shadow calculations.                                                                       |

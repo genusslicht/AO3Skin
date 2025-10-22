@@ -2,33 +2,6 @@
   --comment-img-size: 50px;
 }
 
-#header nav[aria-label="Site"] {
-  order: 2;
-  width: 100%;
-}
-
-#header #greeting {
-  order: 1;
-}
-
-#header .primary {
-  justify-content: center;
-}
-
-#header .primary > li:first-of-type {
-  margin-left: 0;
-}
-
-#header .primary .search {
-  margin: var(--spacing-small) 0;
-  order: -1;
-  width: 100%;
-}
-
-#header #search .text {
-  min-width: 35vw;
-}
-
 .blurb .header.module:has(.required-tags) {
   display: flex;
   flex-flow: row wrap;

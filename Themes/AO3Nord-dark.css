@@ -1,7 +1,6 @@
 :root {
   /* --bg-base: #242933 url("https://www.ontariosciencecentre.ca/media/l0sd20ng/istock-2185639217.jpg") no-repeat center center fixed; */
   --shadow: none;
-  --shadow-main: none;
 
   --bg-base: #242933; /* header / footer background */
   --bg-primary: #2e3440; /* main bg, notice text */
