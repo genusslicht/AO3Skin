@@ -10,15 +10,18 @@
   --shadow: var(--color-dark-rbga025) 0 0.4em 0.4em;
   --shadow-inset: inset var(--color-dark-rbga025) 0 0.4em 0.4em;
 
-  --comment-img-size: 75px;
+  --comment-img-size: 50px;
 
   --border-radius: 0.3em;
+  --tag-border-radius: 1em;
+
   --border-normal: 0.1em;
   --border-fat: 0.15em;
 
   --spacing-xsmall: 0.15em;
   --spacing-small: 0.3em;
   --spacing-normal: 0.6em;
+  --spacing-normal-neg: -0.6em; /* chage as soon as calc() is supported */
   --spacing-large: 1.2em;
   --spacing-xlarge: 1.8em;
 
@@ -53,7 +56,7 @@
   --dashboard-font-size: var(--font-size-xsmall);
   --header-font-size: var(--font-size-xsmall);
   --footer-font-size: var(--font-size-tiny);
-  --tag-font-size: var(--font-size-normal);
+  --tag-font-size: var(--font-size-small);
   --code-font-size: var(--font-size-xsmall);
 }
 
@@ -184,6 +187,7 @@ input,
   color: var(--text-highlight);
   border-radius: var(--border-radius);
   padding: var(--form-element-padding);
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 input:is(:hover),
@@ -192,7 +196,7 @@ input:is(:hover),
 #header #search .text:is(:hover),
 textarea:hover {
   color: var(--text-primary);
-  border: thin solid var(--text-highlight);
+  border-color: var(--text-highlight);
 }
 
 input:is(:focus, :focus-visible),
@@ -203,7 +207,7 @@ textarea:focus {
   background: var(--bg-primary);
   color: var(--text-primary);
   box-shadow: var(--shadow-inset);
-  border: thin solid var(--color-link-action-hover);
+  border-color: var(--color-link-action-hover);
   outline: none;
 }
 
@@ -225,6 +229,7 @@ form.search.simple .submit {
   color: var(--text-highlight);
   padding: var(--form-element-padding);
   margin: 0;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 #main form.single.simple .submit input:is(:hover, :focus, :focus-visible),
@@ -580,6 +585,7 @@ a.rss span {
 #footer button:visited {
   color: var(--text-highlight);
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 #footer a:is(:hover, :focus, :focus-visible),
@@ -858,7 +864,7 @@ a:visited:is(:hover, :focus, :focus-visible),
   content: "";
   left: 0;
   position: absolute;
-  top: -0.6em;
+  top: var(--spacing-normal-neg);
 }
 
 div.comment-preview.userstuff {
@@ -903,7 +909,7 @@ span.claimed,
 
 /* tags */
 a.tag {
-  border-radius: 1em;
+  border-radius: var(--tag-border-radius);
   margin: var(--spacing-small) 0;
   font-size: var(--tag-font-size);
   padding: 0 var(--spacing-normal);
@@ -912,12 +918,14 @@ a.tag {
   display: inline-block;
   word-break: keep-all;
   word-wrap: unset;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 a.tag:is(:hover, :focus, :focus-visible) {
   box-shadow: var(--shadow);
   background: unset;
-  color: unset;
+  color: var(--color-link-action-hover) !important;
+  border-color: var(--color-link-action-hover) !important;
 }
 
 .splash .favorite a.tag {
@@ -933,17 +941,10 @@ a.tag:is(:hover, :focus, :focus-visible) {
   background: var(--bg-secondary);
   border-color: var(--bg-secondary);
 }
-.splash .favorite li:nth-of-type(odd) a.tag:is(:hover, :focus, :focus-visible) {
-  background: linear-gradient(0.45turn, var(--bg-secondary) 60%, var(--color-link-action-hover) 100%);
-}
 
 .splash .favorite li:nth-of-type(even) a.tag {
   background: var(--bg-highlight);
   border-color: var(--bg-highlight);
-}
-
-.splash .favorite li:nth-of-type(even) a.tag:is(:hover, :focus, :focus-visible) {
-  background: linear-gradient(0.45turn, var(--bg-highlight) 60%, var(--color-link-action-hover) 100%);
 }
 
 dd.relationship a.tag,
@@ -1126,6 +1127,12 @@ li.characters a.tag {
 .blurb h4 a:link,
 .blurb h4 img {
   color: var(--text-highlight);
+  transition: color 0.2s ease;
+}
+
+.listbox .heading a:is(:hover, :focus, :focus-visible),
+.blurb h4 a:link:is(:hover, :focus, :focus-visible) {
+  color: var(--color-link-action-hover);
 }
 
 .blurb h4.heading a:first-child {
@@ -1168,6 +1175,7 @@ li.search fieldset::before {
   color: var(--text-highlight);
   content: "\002315";
   filter: opacity(0.5);
+  transition: color 0.2s ease;
 }
 
 li.search:has(.text:hover) fieldset::before {
@@ -1249,6 +1257,10 @@ div.preface .byline a {
   box-shadow: none;
 }
 
+.bookmark .short .status {
+  top: var(--spacing-normal-neg);
+}
+
 dl.index dd {
   background: none;
 }
@@ -1279,6 +1291,7 @@ button,
   background: var(--bg-highlight);
   border: 0;
   color: var(--text-primary);
+  transition: none;
 }
 
 .actions label:not(:has(input[type="checkbox"])) {
@@ -1424,6 +1437,7 @@ fieldset fieldset fieldset,
   color: var(--text-highlight);
   box-shadow: none;
 }
+
 .filters .submit input:is(:hover, :focus, :focus-visible) {
   background: var(--color-link-action-hover);
   color: var(--bg-primary);

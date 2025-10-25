@@ -2,11 +2,11 @@
 
 Skin for AO3. Fully themable through variables.
 
-## Overview
+## Features
 
-This repository contains CSS split into screen/tablet/mobile/theme parts. The installation guide explains how to create the skins on AO3 and tie them together.
-
-The available vaiables and their uses are explained further down.
+- Slim Header that stays with you when you scoll
+  - Except When you're in the middle of a reading session!
+- Clean consistent design
 
 ## Installation / Setup (AO3 Skin editor)
 

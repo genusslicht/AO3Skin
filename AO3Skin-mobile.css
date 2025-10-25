@@ -1,5 +1,5 @@
 :root {
-  --comment-img-size: 50px;
+  --comment-img-size: 40px;
 }
 
 .blurb .header.module:has(.required-tags) {
@@ -10,7 +10,7 @@
   margin: 0;
 }
 
-.blurb:has(.required-tags) .header .heading {
+.blurb:has(.required-tags) .header .heading:not(.byline) {
   margin: var(--spacing-small) 0;
   overflow-wrap: break-word;
   order: 0;
@@ -56,4 +56,8 @@ a.tag,
 
 .blurb ul.required-tags li {
   display: inline-flex;
+}
+
+#workskin {
+  font-size: 1.25em;
 }
