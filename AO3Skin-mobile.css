@@ -2,6 +2,10 @@
   --comment-img-size: 40px;
 }
 
+body {
+  font-size: 115%;
+}
+
 .blurb .header.module:has(.required-tags) {
   display: flex;
   flex-flow: row wrap;
@@ -11,10 +15,9 @@
 }
 
 .blurb:has(.required-tags) .header .heading:not(.byline) {
-  margin: var(--spacing-small) 0;
+  margin: var(--spacing-small) 5.25em 0 0;
   overflow-wrap: break-word;
   order: 0;
-  margin: var(--spacing-small) 5.25em 0 0;
 }
 
 .blurb:has(.required-tags) .header .required-tags {
@@ -31,8 +34,6 @@ a.tag,
 .blurb h4.heading a {
   word-break: break-word;
 }
-
-/* the following lines of codes rearrange the required tags icons*/
 
 .blurb ul.required-tags {
   position: initial;

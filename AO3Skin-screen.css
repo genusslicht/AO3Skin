@@ -38,17 +38,19 @@
   --color-modal-overlay: var(--color-dark-rbga070);
 
   --color-fandom-tags: var(--color-selection);
-  --color-explicit-tags: var(--color-purple);
   --color-mature-tags: var(--color-red);
-  --color-warning-tags: var(--color-orange);
-  --color-platonic-tags: var(--color-yellow);
+  --color-no-warning-tag: var(--text-primary);
+  --color-choosenotto-warning-tag: var(--color-orange);
+  --color-explicit-warning-tags: var(--color-red);
+  --color-explicit-relationship-tags: var(--color-purple);
+  --color-platonic-relationship-tags: var(--color-yellow);
   --color-character-tags: var(--color-green);
   --color-freeform-tags: var(--color-blue);
 
-  --color-earmark-explicit-rating: var(--color-purple);
-  --color-earmark-mature-rating: var(--color-red);
-  --color-earmark-teen-rating: var(--color-yellow);
-  --color-earmark-gen-rating: var(--color-green);
+  --color-explicit-rating: var(--color-purple);
+  --color-mature-rating: var(--color-red);
+  --color-teen-rating: var(--color-yellow);
+  --color-gen-rating: var(--color-green);
 
   --earmark-corner-size: 3em;
 
@@ -561,10 +563,22 @@ a.rss span {
 #site_search_tooltip {
   background: var(--bg-tertiary);
   color: var(--text-primary);
-  border-color: var(--bg-tertiary);
+  border: thin solid var(--text-highlight);
   padding: var(--spacing-small);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow);
+  display: none;
+  z-index: -1;
+  left: 0.3em;
+  right: 0.6em;
+  top: 0;
+  transition: display 0.25s ease, top 0.25s ease;
+  transition-behavior: allow-discrete;
+}
+
+.search input:focus + #site_search_tooltip {
+  top: 2.2em;
+  display: inline;
 }
 
 /* footer */
@@ -639,6 +653,13 @@ a.rss span {
 
 #dashboard a.expanded {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+.javascript .work.navigation:has(.chapter, .download) .secondary {
+  border-radius: var(--border-radius);
+  border: 0;
+  background: var(--bg-secondary);
+  box-shadow: var(--shadow);
 }
 
 .work .expandable.secondary {
@@ -1041,42 +1062,53 @@ h5.fandoms.heading a.tag {
 }
 
 dd.warning a.tag,
-li.warnings a.tag,
-dd.rating a.tag[href*="Mature"],
+li.warnings a.tag {
+  color: var(--color-explicit-warning-tags);
+  border-color: var(--color-explicit-warning-tags);
+  background: unset;
+}
+
+dd.category a.tag[href*="Gen"],
 dd.category a.tag[href*="*s*"],
 dd.category a.tag[href*="Multi"],
 dd.category a.tag[href*="Other"] {
-  color: var(--color-mature-tags);
-  border-color: var(--color-mature-tags);
+  color: var(--color-no-warning-tag);
+  border-color: var(--color-no-warning-tag);
   background: unset;
 }
 
 dd.warning a.tag[href*="No%20Archive%20Warnings%20Apply"],
 li.warnings a.tag[href*="No%20Archive%20Warnings%20Apply"] {
-  color: var(--text-primary);
-  border-color: var(--text-primary);
+  color: var(--color-no-warning-tag);
+  border-color: var(--color-no-warning-tag);
   background: unset;
 }
+
 dd.warning a.tag[href*="Choose%20Not%20To%20Use%20Archive%20Warnings"],
 li.warnings a.tag[href*="Choose%20Not%20To%20Use%20Archive%20Warnings"] {
-  color: var(--color-warning-tags);
-  border-color: var(--color-warning-tags);
+  color: var(--color-choosenotto-warning-tag);
+  border-color: var(--color-choosenotto-warning-tag);
   background: unset;
 }
 
-dd.rating a.tag[href*="Teen%20And%20Up%20Audiences"],
 dd.relationship a.tag,
 li.relationships a.tag {
-  color: var(--color-platonic-tags);
-  border-color: var(--color-platonic-tags);
+  color: var(--color-platonic-relationship-tags);
+  border-color: var(--color-platonic-relationship-tags);
   background: unset;
 }
 
-dd.rating a.tag[href*="Explicit"],
 dd.relationship a.tag[href*="*s*"],
 li.relationships a.tag[href*="*s*"] {
-  color: var(--color-explicit-tags);
-  border-color: var(--color-explicit-tags);
+  color: var(--color-explicit-relationship-tags);
+  border-color: var(--color-explicit-relationship-tags);
+  background: unset;
+}
+
+dd.character.tags a.tag,
+li.characters a.tag {
+  color: var(--color-character-tags);
+  border-color: var(--color-character-tags);
   background: unset;
 }
 
@@ -1087,16 +1119,63 @@ li.freeforms a.tag {
   background: unset;
 }
 
-dd.category a.tag[href*="/tags/Gen/"],
-dd.rating a.tag[href*="/tags/General%20Audiences/"],
-dd.character.tags a.tag,
-li.characters a.tag {
-  color: var(--color-character-tags);
-  border-color: var(--color-character-tags);
+dd.rating a.tag[href*="Explicit"] {
+  color: var(--color-explicit-rating);
+  border-color: var(--color-explicit-rating);
+  background: unset;
+}
+
+dd.rating a.tag[href*="Mature"] {
+  color: var(--color-mature-rating);
+  border-color: var(--color-mature-rating);
+  background: unset;
+}
+
+dd.rating a.tag[href*="Teen%20And%20Up%20Audiences"] {
+  color: var(--color-teen-rating);
+  border-color: var(--color-teen-rating);
+  background: unset;
+}
+
+dd.rating a.tag[href*="General%20Audiences"] {
+  color: var(--color-gen-rating);
+  border-color: var(--color-gen-rating);
   background: unset;
 }
 
 /* listbox / blurb */
+
+.admin .navigation.actions {
+  display: flex;
+  float: none;
+}
+
+.admin .header h2 {
+  text-align: left;
+  margin-left: 0;
+}
+
+.admin .primary .icon,
+.admin .header h3 {
+  display: none;
+}
+
+.admin li:has(.rss) {
+  position: absolute;
+  top: 0;
+  right: 0.6em;
+}
+
+.admin .navigation.actions p {
+  padding: 0;
+  width: 100%;
+  text-align: left;
+}
+
+.admin .navigation.actions li select {
+  width: auto;
+  clear: both;
+}
 
 .home .primary {
   background: var(--bg-secondary);
@@ -2013,22 +2092,22 @@ li.work.blurb {
 
 .work.meta.group:has(.tags.rating a.tag[href*="/tags/Explicit/"]):before,
 .work.blurb:has(.rating-explicit):before {
-  background: linear-gradient(225deg, var(--color-earmark-explicit-rating) 0%, transparent var(--earmark-corner-size));
+  background: linear-gradient(225deg, var(--color-explicit-rating) 0%, transparent var(--earmark-corner-size));
 }
 
 .work.meta.group:has(.tags.rating a.tag[href*="/tags/Mature/"]):before,
 .work.blurb:has(.rating-mature):before {
-  background: linear-gradient(225deg, var(--color-earmark-mature-rating) 0%, transparent var(--earmark-corner-size));
+  background: linear-gradient(225deg, var(--color-mature-rating) 0%, transparent var(--earmark-corner-size));
 }
 
 .work.meta.group:has(.tags.rating a.tag[href*="/tags/Teen%20And%20Up%20Audiences/"]):before,
 .work.blurb:has(.rating-teen):before {
-  background: linear-gradient(225deg, var(--color-earmark-teen-rating) 0%, transparent var(--earmark-corner-size));
+  background: linear-gradient(225deg, var(--color-teen-rating) 0%, transparent var(--earmark-corner-size));
 }
 
 .work.meta.group:has(.tags.rating a.tag[href*="/tags/General%20Audiences/"]):before,
 .work.blurb:has(.rating-general-audience)::before {
-  background: linear-gradient(225deg, var(--color-earmark-gen-rating) 0%, transparent var(--earmark-corner-size));
+  background: linear-gradient(225deg, var(--color-gen-rating) 0%, transparent var(--earmark-corner-size));
 }
 
 .work.meta.group:before,
