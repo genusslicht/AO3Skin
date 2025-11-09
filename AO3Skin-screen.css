@@ -983,20 +983,17 @@ li.relationships a.tag {
 }
 
 .wrapper .work.meta.group dd:is(.tags) {
-  width: auto;
+  width: 100%;
   margin: 0;
   order: 2;
 }
 
 .wrapper .work.meta.group dd.fandom {
   order: 1;
-  width: 100%;
-  margin-bottom: var(--spacing-normal);
 }
 
 .wrapper .work.meta.group dd:is(.rating, .category) {
   order: 0;
-  margin: var(--spacing-normal) 0;
 }
 
 .wrapper .work.meta.group dd:is(.series, .collections) {
