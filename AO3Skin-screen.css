@@ -655,6 +655,7 @@ a.rss span {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
+.work.navigation:has(.chapter, .download),
 .javascript .work.navigation:has(.chapter, .download) .secondary {
   border-radius: var(--border-radius);
   border: 0;
