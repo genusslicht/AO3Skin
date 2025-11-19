@@ -28,8 +28,7 @@
   --color-character-tags: #ccc;
   --color-freeform-tags: #ccc;
 
-  --element-bg: var(--bg-highlight);
-  --color-fg-question: ccc;
+  --color-fg-question: #ccc;
 
   --filter-chart-bg: opacity(0);
   --filter-chart-text: invert(1);
