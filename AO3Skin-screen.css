@@ -319,10 +319,14 @@ a.rss span {
   border-color: var(--text-highlight);
 }
 
-.required,
+.required {
+  color: var(--color-orange);
+}
+
+.required.notice,
 .error,
 .alert.flash {
-  color: var(--color-orange);
+  color: var(--text-primary);
 }
 
 .picture .header {
@@ -559,7 +563,7 @@ a.rss span {
 #header #search .text {
   margin-right: 0;
   padding-right: 1.6em;
-  width: 20vw;
+  width: 15vw;
 }
 
 #header li.search fieldset::before {
@@ -736,39 +740,116 @@ a.rss span {
 
 /* notice */
 #header h2.collections {
-  border: 0;
-  background: var(--color-selection);
-  color: var(--bg-primary);
+  order: 4;
+  width: 100%;
+  position: relative;
+  background: none;
+  font-size: var(--font-size-big);
+  text-align: center;
+  padding: var(--spacing-small);
+  border: thin solid var(--color-selection);
+  border-left: var(--border-radius) solid var(--color-selection);
+  border-right: var(--border-radius) solid var(--color-selection);
+  border-radius: var(--border-radius);
+  margin-top: var(--spacing-small);
   box-shadow: var(--shadow);
+  z-index: 0;
 }
 
-.notice p {
-  color: var(--bg-primary);
+#header h2.collections:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-selection);
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .notice,
 .comment_notice,
 .kudos_notice,
 ul.notes {
-  background: var(--color-yellow);
-  color: var(--bg-primary);
+  border-left: var(--border-radius) solid var(--color-yellow);
+  border-right: var(--border-radius) solid var(--color-yellow);
+  border-color: var(--color-yellow);
+}
+
+.notice:after,
+.comment_notice:after,
+.kudos_notice:after,
+ul.notes:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-yellow);
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .error,
 .comment_error,
 .kudos_error {
-  background: var(--color-red);
-  color: var(--bg-primary);
+  border-left: var(--border-radius) solid var(--color-red);
+  border-right: var(--border-radius) solid var(--color-red);
+  border-color: var(--color-red);
 }
 
+.error:after,
+.comment_error:after,
+.kudos_error:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-red);
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.required.notice,
 .caution {
-  background: var(--color-orange);
-  color: var(--bg-primary);
+  border-left-color: var(--border-radius) solid var(--color-orange);
+  border-right: var(--border-radius) solid var(--color-orange);
+  border-color: var(--color-orange);
+}
+
+.required.notice:after,
+.caution:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-orange);
+  opacity: 0.1;
+  z-index: -1;
 }
 
 .alert.flash {
-  background: var(--color-purple);
-  color: var(--bg-primary);
+  border-left-color: var(--color-purple);
+  border-right-color: var(--color-purple);
+  border-color: var(--color-purple);
+}
+
+.alert.flash:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: var(--color-purple);
+  opacity: 0.1;
+  z-index: -1;
 }
 
 form .notice,
@@ -783,10 +864,13 @@ div.error,
 .comment_error,
 .kudos_error,
 .alert.flash {
-  border: 0;
+  background: none;
   box-shadow: var(--shadow);
-  padding: var(--spacing-normal);
+  padding: var(--spacing-normal) var(--spacing-small);
   border-radius: var(--border-radius);
+  z-index: 0;
+  position: relative;
+  font-size: var(--font-size-small);
 }
 
 form ul.notes,
@@ -801,27 +885,6 @@ ul.notes,
 form ul.notes,
 ul.notes {
   box-shadow: none;
-}
-
-.error a,
-.caution a,
-.notice a,
-.error a:is(:link, :visited),
-.caution a:is(:link, :visited),
-.notice a:is(:link, :visited) {
-  color: var(--bg-primary);
-  border: 0;
-  border-bottom: var(--border-normal) solid;
-}
-
-.error a:is(:hover, :focus, :focus-visible),
-.error a:visited:is(:hover, :focus, :focus-visible),
-.caution a:is(:hover, :focus, :focus-visible),
-.caution a:visited:is(:hover, :focus, :focus-visible),
-.notice a:is(:hover, :focus, :focus-visible),
-.notice a:visited:is(:hover, :focus, :focus-visible) {
-  color: var(--bg-primary);
-  border-bottom: var(--border-fat) solid;
 }
 
 .announcement .action {
@@ -1565,7 +1628,8 @@ fieldset fieldset fieldset {
 }
 
 .filters dt.expanded + dd.expandable {
-  background: none;
+  background-color: var(--color-dark-rbga025);
+  border-top: thin solid var(--color-selection);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   width: 99%;
 }
@@ -1582,10 +1646,6 @@ dd.expandable dl.range {
   color: var(--color-selection);
 }
 
-.filters dt.expanded + dd.expandable {
-  border: thin solid var(--color-selection);
-}
-
 .filters [type="checkbox"],
 .filters [type="radio"] {
   position: inherit;
@@ -1595,7 +1655,7 @@ dd.expandable dl.range {
 }
 
 .filters .include dt.expanded + dd.expandable {
-  border: thin solid var(--color-green);
+  border-top: thin solid var(--color-green);
 }
 .filters .include [type="checkbox"],
 .filters .include [type="radio"] {
@@ -1607,7 +1667,7 @@ dd.expandable dl.range {
 }
 
 .filters .exclude dt.expanded + dd.expandable {
-  border: thin solid var(--color-red);
+  border-top: thin solid var(--color-red);
 }
 
 .filters .exclude [type="checkbox"],
