@@ -419,7 +419,7 @@ a.rss span {
 }
 
 #greeting .user > li.dropdown > a[href^="/users/"]:after {
-  content: "My Account";
+  content: "Account";
   text-indent: 0;
   display: block;
   line-height: initial;
