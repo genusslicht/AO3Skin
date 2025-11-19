@@ -655,7 +655,6 @@ a.rss span {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
-.work.navigation:has(.chapter, .download),
 .javascript .work.navigation:has(.chapter, .download) .secondary {
   border-radius: var(--border-radius);
   border: 0;
@@ -1332,6 +1331,7 @@ div.preface .byline a {
 .bookmark .user {
   background: var(--bg-primary);
   box-shadow: none;
+  margin-bottom: 0.3em;
 }
 
 .bookmark .short .status {
@@ -1756,6 +1756,11 @@ li.tag.added {
 
 dd.autocomplete li.input {
   margin-top: var(--spacing-small);
+}
+
+.filters dd.search,
+form .autocomplete li.input {
+  padding-right: 0.6em;
 }
 
 .autocomplete span.delete {
