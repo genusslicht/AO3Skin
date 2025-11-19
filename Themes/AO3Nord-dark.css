@@ -21,8 +21,7 @@
   --color-selection: #8fbcbb; /* selection highlights, fandom tag bg */
   --color-link-action-hover: #88c0d0; /* interactables hover & focus */
 
-  --element-bg: #e5e9f0; /* background color for invalid notice and help */
-  --color-fg-question: #5e81ac; /* help question foreground */
+  --color-fg-question: var(--color-selection);
 
   --filter-chart-bg: opacity(0);
   --filter-chart-text: brightness(0) invert(93%) sepia(6%) saturate(149%) hue-rotate(178deg) brightness(101%) contrast(96%);

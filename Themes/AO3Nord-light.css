@@ -25,8 +25,7 @@
   --color-selection: var(--color-blue);
   --color-link-action-hover: #659190;
 
-  --element-bg: var(--bg-highlight); /* background color for invalid notice and help */
-  --color-fg-question: #355881; /* help question foreground */
+  --color-fg-question: var(--color-blue);
 
   --filter-chart-bg: opacity(0);
   --filter-chart-accent: brightness(0) invert(82%) sepia(9%) saturate(825%) hue-rotate(130deg) brightness(87%) contrast(88%);

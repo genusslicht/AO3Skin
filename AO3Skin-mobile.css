@@ -6,6 +6,37 @@ body {
   font-size: 115%;
 }
 
+#header nav[aria-label="Site"] {
+  order: 2;
+  width: 100%;
+}
+
+#header #greeting {
+  order: 1;
+}
+
+#header > h1.heading {
+  flex-grow: 1;
+  width: 40%;
+}
+
+#header li.search fieldset {
+  margin-left: 0;
+}
+
+#header li.search {
+  position: absolute;
+  margin-top: var(--spacing-xsmall);
+  top: var(--spacing-normal);
+  left: 3em;
+  z-index: 0;
+}
+
+#header .primary {
+  justify-content: center;
+  margin: var(--spacing-small) 0 0 0;
+}
+
 .blurb .header.module:has(.required-tags) {
   display: flex;
   flex-flow: row wrap;
@@ -61,4 +92,11 @@ a.tag,
 
 #workskin {
   font-size: 1.25em;
+}
+
+.filters .expander:before {
+  content: "\2B0A";
+}
+.filters .expanded .expander:before {
+  content: "\2B08";
 }

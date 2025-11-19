@@ -6,40 +6,9 @@
   background: var(--bg-base);
 }
 
-#header nav[aria-label="Site"] {
-  order: 2;
-  width: 100%;
-}
-
-#header #greeting {
-  order: 1;
-}
-
-#header > h1.heading {
-  flex-grow: 1;
-  width: 40%;
-}
-
-#header li.search fieldset {
-  margin-left: 0;
-}
-
-#header li.search {
-  position: absolute;
-  margin-top: var(--spacing-xsmall);
-  top: var(--spacing-normal);
-  left: 3em;
-  z-index: 100;
-}
-
 #header #search .text {
   min-width: 7em;
-  width: 25vw;
-}
-
-#header .primary {
-  justify-content: center;
-  margin: var(--spacing-small) 0 0 0;
+  width: 15vw;
 }
 
 #header .primary > li:first-of-type {

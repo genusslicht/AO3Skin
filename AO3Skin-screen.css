@@ -171,9 +171,9 @@ samp,
 }
 
 textarea {
-  border: thin solid var(--bg-highlight);
+  border: thin solid var(--bg-tertiary);
   box-shadow: none;
-  background: var(--bg-highlight);
+  background: var(--bg-tertiary);
   color: var(--text-highlight);
   width: -moz-available;
 }
@@ -183,9 +183,9 @@ input,
 #main form.search.simple input[type="text"],
 #header #search .text {
   margin: 0;
-  border: thin solid var(--bg-highlight);
+  border: thin solid var(--bg-tertiary);
   box-shadow: none;
-  background: var(--bg-highlight);
+  background: var(--bg-tertiary);
   color: var(--text-highlight);
   border-radius: var(--border-radius);
   padding: var(--form-element-padding);
@@ -205,6 +205,7 @@ input:is(:focus, :focus-visible),
 #main form.search input[type="text"]:is(:focus, :focus-visible),
 #main form.search.simple input[type="text"]:is(:focus, :focus-visible),
 #header #search .text:is(:focus, :focus-visible),
+.filters .expandable input[type="text"]:is(:focus, :focus-visible),
 textarea:focus {
   background: var(--bg-primary);
   color: var(--text-primary);
@@ -256,16 +257,27 @@ select:focus-visible {
 }
 
 select {
-  background-color: var(--bg-highlight);
-  border: thin solid var(--text-highlight);
+  background-color: var(--bg-tertiary);
+  border: thin solid var(--bg-tertiary);
   border-radius: var(--border-radius);
-  color: var(--text-primary);
+  color: var(--text-highlight);
   padding: var(--form-element-padding);
   vertical-align: middle;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+select:hover {
+  color: var(--text-primary);
+  border-color: var(--text-highlight);
 }
 
 select:is(:focus, :focus-visible) {
-  background-color: var(--bg-highlight);
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-inset);
+  border-color: var(--color-link-action-hover);
+  transition: none;
+  outline: none;
 }
 
 #main {
@@ -1229,7 +1241,6 @@ dd.rating a.tag[href*="General%20Audiences"] {
   font-family: "Noto Sans", sans-serif;
 }
 
-fieldset fieldset.listbox,
 .listbox .index {
   background: none;
   padding: 0;
@@ -1249,7 +1260,7 @@ li.search fieldset::before {
   font-weight: bold;
   font-size: var(--font-size-large);
   color: var(--text-highlight);
-  content: "\002315";
+  content: "\2315";
   filter: opacity(0.5);
   transition: color 0.2s ease;
 }
@@ -1274,23 +1285,6 @@ li.search:has(.text:focus) fieldset::before {
 
 #main li.search input[type="submit"] {
   display: none;
-}
-
-.listbox .index {
-  box-shadow: none;
-}
-
-fieldset fieldset.listbox {
-  overflow: visible;
-}
-
-.listbox,
-.listbox ol.index {
-  overflow: hidden;
-  background: none;
-  padding: 0;
-  border: 0;
-  box-shadow: none;
 }
 
 .chapter .preface,
@@ -1418,17 +1412,34 @@ fieldset {
   border-radius: var(--border-radius);
 }
 
+.listbox .index {
+  box-shadow: none;
+}
+
 fieldset fieldset.listbox {
+  overflow: visible;
   margin: var(--spacing-normal);
   padding: var(--spacing-normal);
-  background: var(--bg-tertiary);
+  background: none;
+  box-shadow: none;
+  border: 0;
+}
+
+.listbox,
+.listbox ol.index {
+  overflow: hidden;
+  background: none;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
 }
 
 /* form dl, */
 fieldset fieldset,
 fieldset dl dl,
 form blockquote.userstuff {
-  background: var(--bg-tertiary);
+  background: none;
+  box-shadow: none;
 }
 
 fieldset dl,
@@ -1462,9 +1473,6 @@ form.verbose legend,
   font-size: var(--font-size-large);
 }
 
-form.verbose #advanced_skin legend {
-  background: var(--bg-tertiary);
-}
 form.single fieldset {
   margin: 0;
 }
@@ -1484,12 +1492,12 @@ form.single .submit input[type="submit"] {
 #skin_media_checkboxes {
   padding: var(--spacing-small) var(--spacing-normal);
   border-radius: var(--border-radius);
+  background: var(--bg-tertiary);
+  box-shadow: none;
 }
 
-fieldset fieldset fieldset,
-#skin_media_checkboxes {
-  background: var(--bg-secondary);
-  box-shadow: none;
+fieldset fieldset fieldset {
+  background: transparent;
 }
 
 .filters .group dt.bookmarker {
@@ -1525,6 +1533,7 @@ fieldset fieldset fieldset,
 }
 .filters > fieldset {
   border-radius: var(--border-radius);
+  padding: 0;
 }
 
 .filters input[type="text"],
@@ -1535,12 +1544,12 @@ fieldset fieldset fieldset,
 }
 
 .filters .expander:before {
-  content: "\21F2";
+  content: "\2B9E";
   position: absolute;
   left: 0;
 }
 .filters .expanded .expander:before {
-  content: "\21F1";
+  content: "\2B9F";
 }
 
 .filters .expanded .expander,
@@ -1556,8 +1565,9 @@ fieldset fieldset fieldset,
 }
 
 .filters dt.expanded + dd.expandable {
-  background: var(--bg-primary);
+  background: none;
   border-radius: 0 0 var(--border-radius) var(--border-radius);
+  width: 99%;
 }
 
 dd.expandable li {
@@ -1573,7 +1583,7 @@ dd.expandable dl.range {
 }
 
 .filters dt.expanded + dd.expandable {
-  border-top: thin solid var(--color-selection);
+  border: thin solid var(--color-selection);
 }
 
 .filters [type="checkbox"],
@@ -1585,7 +1595,7 @@ dd.expandable dl.range {
 }
 
 .filters .include dt.expanded + dd.expandable {
-  border-top: thin solid var(--color-green);
+  border: thin solid var(--color-green);
 }
 .filters .include [type="checkbox"],
 .filters .include [type="radio"] {
@@ -1597,7 +1607,7 @@ dd.expandable dl.range {
 }
 
 .filters .exclude dt.expanded + dd.expandable {
-  border-top: thin solid var(--color-red);
+  border: thin solid var(--color-red);
 }
 
 .filters .exclude [type="checkbox"],
@@ -1759,7 +1769,7 @@ dd.autocomplete li.input {
 }
 
 .filters dd.search,
-form .autocomplete li.input {
+form:not(.filters) .autocomplete li.input {
   padding-right: 0.6em;
 }
 
@@ -1790,7 +1800,7 @@ a.question {
 span.symbol {
   color: var(--color-fg-question);
   border-color: var(--color-fg-question);
-  background: var(--element-bg);
+  background: var(--bg-tertiary);
   box-shadow: var(--shadow);
 }
 
@@ -1842,7 +1852,7 @@ textarea.LV_invalid_field:active {
   border-color: var(--color-orange) transparent;
 }
 .LV_invalid {
-  background: var(--element-bg);
+  background: var(--bg-tertiary);
   border: var(--border-normal) solid var(--color-orange);
   color: var(--color-orange);
   box-shadow: var(--shadow);
