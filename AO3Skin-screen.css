@@ -25,6 +25,8 @@
   --spacing-large: 1.2em;
   --spacing-xlarge: 1.8em;
 
+  --spacing-sticky-top: 4em;
+
   --font-size-xlarge: 1.4em;
   --font-size-large: 1.2em;
   --font-size-big: 1.1em;
@@ -60,6 +62,8 @@
   --footer-font-size: var(--font-size-tiny);
   --tag-font-size: var(--font-size-small);
   --code-font-size: var(--font-size-xsmall);
+
+  scrollbar-color: var(--text-highlight) var(--color-dark-rbga070);
 }
 
 html,
@@ -407,6 +411,11 @@ a.rss span {
   padding: 0;
 }
 
+#login,
+#greeting {
+  margin-right: 0;
+}
+
 #header #greeting {
   order: 2;
   display: flex;
@@ -632,7 +641,7 @@ a.rss span {
 #dashboard.own {
   border: 0;
   position: sticky;
-  top: 4em;
+  top: var(--spacing-sticky-top);
 }
 
 #dashboard ul {
@@ -680,7 +689,7 @@ a.rss span {
 
 .work .expandable.secondary {
   border: 0;
-  top: 4em;
+  top: var(--spacing-sticky-top);
 }
 
 .secondary,
@@ -1544,6 +1553,26 @@ fieldset fieldset fieldset {
   background: transparent;
 }
 
+.filtered .index:not(:has(+ form.filters)) {
+  width: 100%;
+}
+
+/* sticky filters box */
+form.filters {
+  margin: var(--spacing-normal) 0;
+  position: sticky;
+  top: var(--spacing-sticky-top);
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  width: 25%;
+  padding: 0;
+}
+
+/* prevent filter box from overlapping pagination buttons */
+.region:has(ol.pagination.actions) form.filters {
+  margin-bottom: 4.5em;
+}
+
 .filters .group dt.bookmarker {
   border-color: var(--bg-highlight);
 }
@@ -1577,7 +1606,13 @@ fieldset fieldset fieldset {
 }
 .filters > fieldset {
   border-radius: var(--border-radius);
-  padding: 0;
+  padding: 0 var(--spacing-small) 0 0; /* leave a little more space on the right for the scrollbar */
+  margin: 0 0 0 1em;
+  max-height: 79vh;
+  overflow-x: visible;
+  overflow-y: scroll;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
 }
 
 .filters input[type="text"],

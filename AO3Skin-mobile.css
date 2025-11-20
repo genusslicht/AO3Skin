@@ -94,6 +94,42 @@ a.tag,
   font-size: 1.25em;
 }
 
+.javascript form.filters {
+  width: 80%;
+  padding: 0;
+  max-height: 95vh;
+}
+
+.region:has(ol.pagination.actions) form.filters {
+  margin-bottom: 0;
+}
+
+.javascript .filters fieldset {
+  margin: auto 0;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 20%;
+  right: 0;
+  width: 75%;
+  max-height: 90vh;
+  height: fit-content;
+}
+
+.filtering .filters #leave_filters {
+  background-color: var(--color-dark-rbga070);
+}
+
+body:has(.filtering) {
+  overflow: hidden;
+}
+
+body:has(.filtering) #header,
+body:has(.filtering) #footer,
+body:has(.filtering) #inner > * > *:not(.filters) {
+  filter: blur(2px);
+}
+
 .filters .expander:before {
   content: "\2B0A";
 }

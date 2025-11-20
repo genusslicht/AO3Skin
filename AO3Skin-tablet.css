@@ -19,6 +19,12 @@
   color: var(--text-primary);
 }
 
+#main,
+#main.dashboard {
+  padding-left: var(--spacing-normal);
+  padding-right: var(--spacing-normal);
+}
+
 #dashboard,
 #dashboard.own {
   position: initial;
@@ -40,4 +46,9 @@ div.preface {
 form.single span.submit,
 form.single ul.autocomplete {
   display: inline-block;
+}
+
+.filters > fieldset {
+  margin: 0;
+  padding: 0 var(--spacing-normal) 0 var(--spacing-small);
 }
