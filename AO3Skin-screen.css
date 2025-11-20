@@ -598,8 +598,8 @@ a.rss span {
   box-shadow: var(--shadow);
   display: none;
   z-index: -1;
-  left: 0.3em;
-  right: 0.6em;
+  left: var(--spacing-small);
+  right: var(--spacing-normal);
   top: 0;
   transition: display 0.25s ease, top 0.25s ease;
   transition-behavior: allow-discrete;
@@ -1236,7 +1236,7 @@ dd.rating a.tag[href*="General%20Audiences"] {
 .admin li:has(.rss) {
   position: absolute;
   top: 0;
-  right: 0.6em;
+  right: var(--spacing-normal);
 }
 
 .admin .navigation.actions p {
@@ -1389,7 +1389,7 @@ div.preface .byline a {
 .bookmark .user {
   background: var(--bg-primary);
   box-shadow: none;
-  margin-bottom: 0.3em;
+  margin-bottom: var(--spacing-small);
 }
 
 .bookmark .short .status {
@@ -1617,7 +1617,7 @@ form.filters {
 .filters > fieldset {
   border-radius: var(--border-radius);
   padding: 0 var(--spacing-small) 0 0; /* leave a little more space on the right for the scrollbar */
-  margin: 0 0 0 1em;
+  margin: 0 0 0 var(--spacing-large);
   max-height: 79vh;
   overflow-x: visible;
   overflow-y: scroll;
@@ -1858,7 +1858,7 @@ dd.autocomplete li.input {
 
 .filters dd.search,
 form:not(.filters) .autocomplete li.input {
-  padding-right: 0.6em;
+  padding-right: var(--spacing-normal);
 }
 
 .autocomplete span.delete {
