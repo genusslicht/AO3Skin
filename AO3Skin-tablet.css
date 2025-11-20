@@ -52,3 +52,20 @@ form.single ul.autocomplete {
   margin: 0;
   padding: 0 var(--spacing-normal) 0 var(--spacing-small);
 }
+
+#modal .content {
+  overflow-x: visible;
+  overflow-y: scroll;
+  overflow-wrap: anywhere;
+  box-sizing: border-box;
+  max-height: 80vh;
+}
+
+#modal {
+  width: 90vw;
+  max-height: 90vh;
+}
+
+body:has(#modal .content p) {
+  overflow: hidden;
+}

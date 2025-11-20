@@ -367,9 +367,8 @@ a.rss span {
   border-bottom: var(--border-normal) solid var(--bg-highlight);
 }
 
-#modal .footer .action.modal-closer {
-  right: var(--spacing-small);
-  bottom: var(--spacing-small);
+#modal .footer {
+  font-size: var(--font-size-xsmall);
 }
 
 #symbols-key dl {
@@ -1562,7 +1561,6 @@ form.filters {
   margin: var(--spacing-normal) 0;
   position: sticky;
   top: var(--spacing-sticky-top);
-  overflow-wrap: anywhere;
   box-sizing: border-box;
   width: 25%;
   padding: 0;
