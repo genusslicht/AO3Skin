@@ -775,9 +775,10 @@ ul.notes {
 
 .required.notice,
 .caution {
-  border-left-color: var(--border-radius) solid var(--color-orange);
+  border-left: var(--border-radius) solid var(--color-orange);
   border-right: var(--border-radius) solid var(--color-orange);
   border-color: var(--color-orange);
+  color: var(--text-primary); /* override ao3 .caution rule */
 }
 
 .error,
@@ -788,9 +789,10 @@ ul.notes {
   border-color: var(--color-red);
 }
 
-.alert.flash {
-  border-left-color: var(--color-purple);
-  border-right-color: var(--color-purple);
+.alert.flash,
+.alert.flash.notice {
+  border-left: var(--border-radius) solid var(--color-purple);
+  border-right: var(--border-radius) solid var(--color-purple);
   border-color: var(--color-purple);
 }
 
@@ -827,17 +829,22 @@ ul.notes:after {
 }
 
 .required.notice:after,
+.caution.notice:after,
 .caution:after {
   background-color: var(--color-orange);
 }
 
 .error:after,
+.error.notice:after,
 .comment_error:after,
+.comment_error.notice:after,
+.kudos_error.notice:after,
 .kudos_error:after {
   background-color: var(--color-red);
 }
 
-.alert.flash:after {
+.alert.flash:after,
+.alert.flash.notice:after {
   background-color: var(--color-purple);
 }
 
