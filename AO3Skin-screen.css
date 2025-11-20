@@ -54,6 +54,11 @@
   --color-teen-rating: var(--color-yellow);
   --color-gen-rating: var(--color-green);
 
+  --color-notice: var(--color-yellow);
+  --color-caution: var(--color-orange);
+  --color-error: var(--color-red);
+  --color-alert-flash: var(--color-purple);
+
   --earmark-corner-size: 3em;
 
   --main-font-size: var(--font-size-xsmall);
@@ -324,7 +329,7 @@ a.rss span {
 }
 
 .required {
-  color: var(--color-orange);
+  color: var(--color-caution);
 }
 
 .required.notice,
@@ -768,32 +773,32 @@ a.rss span {
 .comment_notice,
 .kudos_notice,
 ul.notes {
-  border-left: var(--border-radius) solid var(--color-yellow);
-  border-right: var(--border-radius) solid var(--color-yellow);
-  border-color: var(--color-yellow);
+  border-left: var(--border-radius) solid var(--color-notice);
+  border-right: var(--border-radius) solid var(--color-notice);
+  border-color: var(--color-notice);
 }
 
 .required.notice,
 .caution {
-  border-left: var(--border-radius) solid var(--color-orange);
-  border-right: var(--border-radius) solid var(--color-orange);
-  border-color: var(--color-orange);
+  border-left: var(--border-radius) solid var(--color-caution);
+  border-right: var(--border-radius) solid var(--color-caution);
+  border-color: var(--color-caution);
   color: var(--text-primary); /* override ao3 .caution rule */
 }
 
 .error,
 .comment_error,
 .kudos_error {
-  border-left: var(--border-radius) solid var(--color-red);
-  border-right: var(--border-radius) solid var(--color-red);
-  border-color: var(--color-red);
+  border-left: var(--border-radius) solid var(--color-error);
+  border-right: var(--border-radius) solid var(--color-error);
+  border-color: var(--color-error);
 }
 
 .alert.flash,
 .alert.flash.notice {
-  border-left: var(--border-radius) solid var(--color-purple);
-  border-right: var(--border-radius) solid var(--color-purple);
-  border-color: var(--color-purple);
+  border-left: var(--border-radius) solid var(--color-alert-flash);
+  border-right: var(--border-radius) solid var(--color-alert-flash);
+  border-color: var(--color-alert-flash);
 }
 
 #header h2.collections:after,
@@ -825,13 +830,13 @@ ul.notes:after,
 .comment_notice:after,
 .kudos_notice:after,
 ul.notes:after {
-  background-color: var(--color-yellow);
+  background-color: var(--color-notice);
 }
 
 .required.notice:after,
 .caution.notice:after,
 .caution:after {
-  background-color: var(--color-orange);
+  background-color: var(--color-caution);
 }
 
 .error:after,
@@ -840,12 +845,12 @@ ul.notes:after {
 .comment_error.notice:after,
 .kudos_error.notice:after,
 .kudos_error:after {
-  background-color: var(--color-red);
+  background-color: var(--color-error);
 }
 
 .alert.flash:after,
 .alert.flash.notice:after {
-  background-color: var(--color-purple);
+  background-color: var(--color-alert-flash);
 }
 
 form :not(.autocomplete) > .notice,
@@ -1928,17 +1933,17 @@ input.LV_invalid_field:hover,
 input.LV_invalid_field:active,
 textarea.LV_invalid_field:hover,
 textarea.LV_invalid_field:active {
-  border-color: var(--color-orange);
+  border-color: var(--color-caution);
 }
 
 .LV_invalid:before {
-  border-color: var(--color-orange) transparent;
+  border-color: var(--color-caution) transparent;
 }
 
 .LV_invalid {
   background: var(--bg-tertiary);
-  border: var(--border-normal) solid var(--color-orange);
-  color: var(--color-orange);
+  border: var(--border-normal) solid var(--color-caution);
+  color: var(--color-caution);
   box-shadow: var(--shadow);
   display: block;
 }
