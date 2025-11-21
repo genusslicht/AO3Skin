@@ -23,8 +23,10 @@
 
   --color-fg-question: var(--color-selection);
 
+  --filter-text-primary: brightness(0) invert(93%) sepia(6%) saturate(149%) hue-rotate(178deg) brightness(101%) contrast(96%);
+
   --filter-chart-bg: opacity(0);
-  --filter-chart-text: brightness(0) invert(93%) sepia(6%) saturate(149%) hue-rotate(178deg) brightness(101%) contrast(96%);
+  --filter-chart-text: var(--filter-text-primary);
   --filter-chart-tooltip: brightness(0) invert(27%) sepia(11%) saturate(1084%) hue-rotate(182deg) brightness(94%) contrast(84%);
   --filter-chart-accent: brightness(0) invert(82%) sepia(9%) saturate(825%) hue-rotate(130deg) brightness(87%) contrast(88%);
   --filter-chart-accent-hover: brightness(0) invert(73%) sepia(35%) saturate(316%) hue-rotate(147deg) brightness(95%) contrast(86%);

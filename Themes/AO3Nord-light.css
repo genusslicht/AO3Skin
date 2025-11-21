@@ -27,7 +27,10 @@
 
   --color-fg-question: var(--color-blue);
 
+  --filter-text-primary: brightness(0) invert(16%) sepia(15%) saturate(875%) hue-rotate(182deg) brightness(94%) contrast(87%);
+
   --filter-chart-bg: opacity(0);
+  --filter-chart-text: var(--filter-text-primary);
   --filter-chart-accent: brightness(0) invert(82%) sepia(9%) saturate(825%) hue-rotate(130deg) brightness(87%) contrast(88%);
   --filter-chart-accent-hover: brightness(0) invert(73%) sepia(35%) saturate(316%) hue-rotate(147deg) brightness(95%) contrast(86%);
 

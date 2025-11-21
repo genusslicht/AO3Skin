@@ -30,8 +30,10 @@
 
   --color-fg-question: #ccc;
 
+  --filter-text-primary: invert(1);
+
   --filter-chart-bg: opacity(0);
-  --filter-chart-text: invert(1);
+  --filter-chart-text: var(--filter-text-primary);
   --filter-chart-tooltip: invert(1);
   --filter-chart-guide-even: opacity(0.1);
   --filter-chart-guide-odd: opacity(0.2);

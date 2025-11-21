@@ -58,6 +58,7 @@
   --color-caution: var(--color-orange);
   --color-error: var(--color-red);
   --color-alert-flash: var(--color-purple);
+  --color-collection: var(--color-selection);
 
   --earmark-corner-size: 3em;
 
@@ -418,8 +419,11 @@ a.rss span {
 
 #header nav {
   order: 1;
-  flex-grow: 1;
   padding: 0;
+}
+
+#header nav:not(#greeting) {
+  flex-grow: 1;
 }
 
 #login,
@@ -474,13 +478,13 @@ a.rss span {
 
 #header .primary {
   display: flex;
-  justify-content: left;
+  justify-content: center;
   flex-flow: row wrap;
   align-items: flex-end;
 }
 
 #header .primary > li:first-of-type {
-  margin-left: var(--spacing-large);
+  margin-left: var(--spacing-small);
 }
 
 #header .user > li > a,
@@ -767,7 +771,7 @@ a.rss span {
   font-size: var(--font-size-big);
   text-align: center;
   padding: var(--spacing-small);
-  border: thin solid var(--color-selection);
+  border: thin solid var(--color-collection);
   border-left: var(--border-radius) solid var(--color-selection);
   border-right: var(--border-radius) solid var(--color-selection);
   border-radius: var(--border-radius);
@@ -1102,8 +1106,8 @@ li.relationships a.tag {
 .wrapper .work.meta.group dd:is(.language, .stats) {
   width: auto;
   order: 4;
+  margin: 0;
   margin-right: var(--spacing-large);
-  margin-left: 0;
 }
 
 .wrapper .work.meta.group dd.freeform {
@@ -1385,7 +1389,7 @@ li.comment.group {
   border: 0;
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
-  padding: var(--spacing-small) var(--spacing-normal);
+  padding: var(--spacing-normal);
 }
 
 .works .wrapper,
@@ -2293,4 +2297,203 @@ li.work.blurb {
 .work.meta.group > .rating.tags,
 #main > .wrapper .work.meta dt {
   display: none;
+}
+
+/* ------------------ */
+/* REGION: STAT ICONS */
+/* ------------------ */
+
+.stats
+  dt:is(
+    .prompts,
+    .language,
+    .words,
+    .chapters,
+    .comments,
+    .kudos,
+    .bookmarks,
+    .hits,
+    .collections,
+    .subscriptions,
+    .works,
+    .prompts,
+    .fandoms,
+    .kudos-hits-ratio,
+    .reading-time,
+    .published,
+    .status
+  ),
+.series.meta.group dl.stats > dt:not([class]),
+.work.meta.group dt.collections,
+.tagset.group > dl.stats > dt {
+  display: none;
+}
+
+:is(.meta, .blurb, .statistics) dl.stats {
+  display: flex;
+  align-items: baseline;
+  justify-content: left;
+}
+
+.statistics dl.stats {
+  justify-content: right;
+}
+
+.work.meta.group dd.language,
+:is(.meta, .blurb, .statistics) dl.stats dd {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+:is(.meta, .blurb, .statistics) dl.stats dd:not(:first-of-type) {
+  margin-left: var(--spacing-large);
+}
+
+.stats
+  dd:is(
+    .prompts,
+    .language,
+    .words,
+    .chapters,
+    .comments,
+    .kudos,
+    .bookmarks,
+    .hits,
+    .collections,
+    .subscriptions,
+    .works,
+    .prompts,
+    .fandoms,
+    .kudos-hits-ratio,
+    .reading-time,
+    .published,
+    .status
+  ):before,
+.series.meta.group dl.stats > dd:not([class]):before,
+.work.meta.group dd.language:before,
+.tagset.group > dl.stats > dd:before {
+  content: "";
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  margin-right: var(--spacing-small);
+  filter: var(--filter-text-primary);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 1em;
+}
+
+/* language */
+.stats dd.language:before,
+.work.meta.group dd.language:before {
+  background-image: url(https://ucarecdn.com/a4aece95-45ce-4f32-865d-9d77bbe38cb2/languages.png);
+}
+
+/* words */
+.stats dd.words:before {
+  background-image: url(https://ucarecdn.com/6df09503-874f-464b-9c1d-2fd551480e48/pencilline.png);
+}
+
+/* chapters */
+.stats dd.chapters:before {
+  background-image: url(https://ucarecdn.com/0874dd4f-e754-44f1-928c-dc0c79b6437d/bookopentext.png);
+}
+
+/* comments */
+.stats dd.comments:before {
+  background-image: url(https://ucarecdn.com/0d725d66-2d8e-44dc-a924-329af7a2cce1/messagesquare.png);
+}
+
+/* kudos */
+.stats dd.kudos:before {
+  background-image: url(https://ucarecdn.com/c102e31d-f110-4609-9392-298ac7ec9c08/sparkles.png);
+}
+
+/* bookmarks */
+.stats dd.bookmarks:before {
+  background-image: url(https://ucarecdn.com/b907fcbb-697a-4eb6-8d70-f281764bd360/bookmark.png);
+}
+
+/* hits */
+.stats dd.hits:before {
+  background-image: url(https://ucarecdn.com/a9199272-7baa-4024-83c4-9375bd458496/eye.png);
+}
+
+/* collections */
+.stats dd.collections:has(a[href^="/works"]):before,
+.work.meta.group dd.collections:before {
+  background-image: url(https://ucarecdn.com/773054fe-1d19-452d-a2bc-cf3ed5c9a45d/landmark.png);
+}
+
+/* subscriptions */
+.stats dd.subscriptions:before {
+  background-image: url(https://ucarecdn.com/883aa316-ad9f-4f68-9ad0-dabb660c49ab/mailcheck.png);
+}
+
+/* challenges */
+.stats dd.collections:has(a[href^="/collections"]):before {
+  background-image: url(https://ucarecdn.com/1b51dd32-ef77-4224-b66d-b88f9093c27d/swatchbook.png);
+}
+
+/* works */
+.stats dd.works:before {
+  background-image: url(https://ucarecdn.com/56f25037-593b-4b15-9457-877a321d0147/library.png);
+}
+
+/* k2h ratio */
+.stats dd.kudos-hits-ratio:before {
+  background-image: url(https://ucarecdn.com/efc98178-5aa8-45dd-bbec-507cb0539590/flame.png);
+}
+
+/* read time ratio */
+.stats dd.reading-time:before {
+  background-image: url(https://ucarecdn.com/518e360d-8a68-4ead-8c1d-b49e4c88dccd/hourglass.png);
+}
+
+/* published */
+.stats dd.published:before {
+  background-image: url(https://ucarecdn.com/0700c0de-7db6-4c49-a5e9-7a78ec2145a8/calendarplus.png);
+}
+
+/* status */
+.stats dd.status:before {
+  background-image: url(https://ucarecdn.com/2beb388c-69df-4950-a17b-0d1498e22a85/calendarclock.png);
+}
+
+/* series complete */
+.series.meta.group dl.stats > dd:not([class]):before {
+  background-image: url(https://ucarecdn.com/35151563-cf54-455e-9d37-0928daf67b76/circlecheckbig.png);
+}
+
+/* works */
+.stats dd.works:before {
+  background-image: url(https://ucarecdn.com/56f25037-593b-4b15-9457-877a321d0147/library.png);
+}
+
+/* fandoms & TagSet Fandoms */
+.stats dd.fandoms:before,
+.tagset.group > dl.stats > dd:nth-of-type(1):before {
+  background-image: url(https://ucarecdn.com/60d2f8ca-6a2d-4376-8b66-3e8ff654d9d9/landplot.png);
+}
+
+/* prompts */
+.stats dd.prompts:before {
+  background-image: url(https://ucarecdn.com/f667b38d-902e-4e95-b5b9-fe606ff1048f/cakeslice.png);
+}
+
+/* TagSet Characters */
+.tagset.group > dl.stats > dd:nth-of-type(2):before {
+  background-image: url(https://ucarecdn.com/0b304572-8704-419c-b529-33f24b2fdcf4/drama.png);
+}
+
+/* TagSet Relationships */
+.tagset.group > dl.stats > dd:nth-of-type(3):before {
+  background-image: url(https://ucarecdn.com/991ced4d-ecd9-428b-8997-7618ff906839/handshake.png);
+}
+
+/* TagSet Additional */
+.tagset.group > dl.stats > dd:nth-of-type(4):before {
+  background-image: url(https://ucarecdn.com/ef53d87d-9708-46fa-bf94-5bee1fcb42a8/tags.png);
 }

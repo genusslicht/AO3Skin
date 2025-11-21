@@ -4,9 +4,12 @@ Skin for AO3. Fully themable through variables.
 
 ## Features
 
-- Slim Header that stays with you when you scoll
-  - Except When you're in the middle of a reading session!
-- Clean consistent design
+- Slim Header that stays with you when you scoll (Except when you're in the middle of a reading session!)
+- Sticky Dashboard navigation (Desktop only) and Filters
+- Custom icons for required tag
+- Individual tag category colors
+- Styled statistics graph
+- Customizable through CSS variables
 
 ## Installation / Setup (AO3 Skin editor)
 
@@ -38,28 +41,21 @@ Skin for AO3. Fully themable through variables.
 
 Reference table of all CSS custom properties used by the skin and their intended uses. You usually don't need to change any of those.
 
-| Variable                 | Use / purpose                                                                                           |
-| ------------------------ | ------------------------------------------------------------------------------------------------------- |
-| `--color-dark-rgba070`   | Modal/dialog background overlay color (semi‑transparent overlay).                                       |
-| `--color-dark-rbga025`   | Reusable dark color at 25% alpha used for shadows and subtle overlays.                                  |
-| `--color-dark-rbga010`   | Reusable dark color at 10% alpha for very subtle overlays.                                              |
-| `--offset-x`             | X offset for shadow calculations.                                                                       |
-| `--offset-y`             | Y offset for drop shadows.                                                                              |
-| `--inset-y`              | Y offset (negative) for reverse/inset shadows.                                                          |
-| `--blur-radius`          | Blur radius for shadows.                                                                                |
-| `--spread-radius`        | Spread radius used by some shadow presets.                                                              |
-| `--shadow`               | Convenience shadow shorthand (drop shadow).                                                             |
-| `--shadow-inset`         | Convenience inset shadow shorthand.                                                                     |
-| `--shadow-reverse-inset` | Reverse inset shadow shorthand.                                                                         |
-| `--shadow-main`          | Main glow/soft shadow used for primary elements.                                                        |
-| `--comment-img-size`     | Fixed size used for comment avatar / image elements (default 75px / 60px for tablet / 50px for mobile). |
-| `--border-radius`        | Corner radius applied across UI elements.                                                               |
-| `--border-normal`        | Standard border thickness.                                                                              |
-| `--border-fat`           | Heavier border thickness for emphasis.                                                                  |
-| `--spacing-xsmall`       | Very small spacing/gap.                                                                                 |
-| `--spacing-small`        | Small spacing/gap.                                                                                      |
-| `--spacing-normal`       | Regular spacing/gap.                                                                                    |
-| `--spacing-large`        | Large spacing/gap.                                                                                      |
+| Variable                | Use / purpose                                                                                           |
+| ----------------------- | ------------------------------------------------------------------------------------------------------- |
+| `--color-dark-rgba070`  | Modal/dialog background overlay color (semi‑transparent overlay).                                       |
+| `--color-dark-rbga025`  | Reusable dark color at 25% alpha used for shadows and subtle overlays.                                  |
+| `--color-dark-rbga010`  | Reusable dark color at 10% alpha for very subtle overlays.                                              |
+| `--offset-x`            | X offset for shadow calculations.                                                                       |
+| `--offset-y`            | Y offset for drop shadows.                                                                              |
+| `--inset-y`             | Y offset (negative) for reverse/inset shadows.                                                          |
+| `--blur-radius`         | Blur radius for shadows.                                                                                |
+| `--shadow`              | Convenience shadow shorthand (drop shadow).                                                             |
+| `--shadow-inset`        | Convenience inset shadow shorthand.                                                                     |
+| `--comment-img-size`    | Fixed size used for comment avatar / image elements (default 50px / 45px for tablet / 40px for mobile). |
+| `--border-radius`       | Corner radius applied across UI elements.                                                               |
+| `--tag-border-radius`   | Corner radius applied to tags elements.                                                                 |
+| `--earmark-corner-size` | Corner size for colored "earmark" on rated fics in list view. Set to `0` to disable.                    |
 
 ### Theme Colors
 
@@ -87,15 +83,36 @@ All colors used for creating your own color theme.
 
 ### Tag Colors
 
-| Variable                 | Use / purpose                                                         |
-| ------------------------ | --------------------------------------------------------------------- |
-| `--color-fandom-tags`    | Color used for fandom tag backgrounds (default `--color-selection`).  |
-| `--color-mature-tags`    | Color used for "mature" tags (default `--color-red`).                 |
-| `--color-warning-tags`   | Color used for archive warning tags (default `--color-orange`).       |
-| `--color-platonic-tags`  | Color used for platonic relationship tags (default `--color-yellow`). |
-| `--color-explicit-tags`  | Color used for explicit relationship tags (default `--color-purple`). |
-| `--color-character-tags` | Color used for character tags (default `--color-green`).              |
-| `--color-freeform-tags`  | Color used for freeform tags (default `--color-blue`).                |
+| Variable                 | Use / Default                                  |
+| ------------------------ | ---------------------------------------------- |
+| `--color-fandom-tags`    | `--color-selection`                            |
+| `--color-mature-tags`    | `--color-red`                                  |
+| `--color-warning-tags`   | `--color-orange`                               |
+| `--color-platonic-tags`  | & Relationships. Default: `--color-yellow`     |
+| `--color-explicit-tags`  | Slash relationships. Default: `--color-purple` |
+| `--color-character-tags` | `--color-green`                                |
+| `--color-freeform-tags`  | `--color-blue`                                 |
+
+### Rating Colors
+
+Colors are used for tags in reading view and earmarks in list view.
+
+| Variable                  | Default          |
+| ------------------------- | ---------------- |
+| `--color-explicit-rating` | `--color-purple` |
+| `--color-mature-rating`   | `--color-red`    |
+| `--color-teen-rating`     | `--color-yellow` |
+| `--color-gen-rating`      | `--color-green`  |
+
+### Notice Box Colors
+
+| Variable              | Use / Default                                        |
+| --------------------- | ---------------------------------------------------- |
+| `--color-notice`      | General notice box. Default: `--color-yellow`        |
+| `--color-caution`     | Warnings / Reqired. Default: `--color-yellow`        |
+| `--color-error`       | Errors. Default: `--color-yellow`                    |
+| `--color-alert-flash` | Whatever that is. Default: `--color-yellow`          |
+| `--color-collection`  | Collection page banner. Default: `--color-selection` |
 
 ### Stat Chart Colors
 
@@ -117,10 +134,5 @@ See: [My Github Gist](https://gist.github.com/genusslicht/9910dfeb496f20dacac429
 | `--filter-chart-guide-odd`    | Filter for odd guide lines in chart. (suggestion: ignore, or `opacity(0.1)` for dark, a higher `0.x` for light theme)         |
 
 ### Custom Icon Colors
-
-> [!IMPORTANT]
-> Only Relevant when also using my other gists with the provided default icons --> [Replace Icons](https://gist.github.com/genusslicht/10a829e20868ce7bc1a0bdc7984ee714)
->
-> Can also be completely ignored!
 
 `--filter-icons` - Define a filter chain to tint replaced icons a little closer to used theme colors. Play around with it in the Browser dev tools. `brightness`, `contrast` and `saturate` are your friends.
