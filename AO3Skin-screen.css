@@ -68,6 +68,8 @@
   --tag-font-size: var(--font-size-small);
   --code-font-size: var(--font-size-xsmall);
 
+  --line-height: 1.286;
+
   scrollbar-color: var(--text-highlight) var(--color-dark-rbga070);
 }
 
@@ -89,6 +91,7 @@ body,
 
 #main {
   font-size: var(--main-font-size);
+  line-height: var(--line-height);
 }
 
 #dashboard {
@@ -162,6 +165,10 @@ h6 {
   border: 0;
 }
 
+.home .header ul.actions {
+  margin-left: 100px;
+}
+
 .post .required .warnings,
 form dd.required,
 dd.required {
@@ -184,7 +191,7 @@ textarea {
   box-shadow: none;
   background: var(--bg-tertiary);
   color: var(--text-highlight);
-  width: -moz-available;
+  box-sizing: border-box;
 }
 
 input,
@@ -451,7 +458,7 @@ a.rss span {
   content: "Account";
   text-indent: 0;
   display: block;
-  line-height: initial;
+  line-height: var(--line-height);
 }
 
 #header .primary a,
@@ -1004,6 +1011,20 @@ span.claimed,
   background: var(--bg-secondary);
 }
 
+.child {
+  background: var(--bg-secondary);
+  padding: var(--spacing-normal);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+dl.index dd.parent {
+  background: var(--bg-secondary);
+  margin-right: 0;
+  border-radius: 0 0 var(--border-radius) var(--border-radius);
+  padding: var(--spacing-normal);
+  margin-left: 0;
+}
+
 /* tags */
 a.tag {
   border-radius: var(--tag-border-radius);
@@ -1410,6 +1431,45 @@ dl.index dd {
 
 /* menu actions */
 
+#main ol.actions,
+#main ul.actions {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: end;
+  align-items: center;
+  padding: 0;
+}
+
+#main ol.actions {
+  justify-content: center;
+}
+
+#main ol.actions li,
+#main ul.actions li {
+  margin: 0;
+  padding: 0;
+}
+
+#main ol.actions li:not(:first-child),
+#main ul.actions li:not(:first-child) {
+  margin-left: var(--spacing-small);
+}
+
+span.actions {
+  padding: 0;
+}
+
+.actions li a,
+.actions li button,
+.actions li input,
+.actions li input[type="submit"],
+.actions li .current,
+.actions li .heading,
+.actions li label {
+  margin: var(--spacing-small) auto;
+  padding: 0.25em 0.75em;
+}
+
 .actions a,
 .actions a:link,
 .action,
@@ -1427,6 +1487,7 @@ button,
   border: 0;
   color: var(--text-primary);
   transition: none;
+  line-height: var(--line-height);
 }
 
 .actions label:not(:has(input[type="checkbox"])) {
@@ -1466,7 +1527,7 @@ a:link.current,
   font-weight: bold;
 }
 
-/* form / filter */
+/* form in general */
 form.single fieldset,
 form > dl,
 fieldset {
@@ -1474,6 +1535,15 @@ fieldset {
   border: 0;
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
+}
+
+form > fieldset {
+  margin: var(--spacing-normal) 0;
+}
+
+form dd > input[type="text"],
+form dd .autocomplete .input > input[type="text"] {
+  box-sizing: border-box;
 }
 
 .listbox .index {
@@ -1498,7 +1568,6 @@ fieldset fieldset.listbox {
   box-shadow: none;
 }
 
-/* form dl, */
 fieldset fieldset,
 fieldset dl dl,
 form blockquote.userstuff {
@@ -1512,7 +1581,6 @@ fieldset dl fieldset dl {
   background: transparent;
 }
 
-/* form dl, */
 fieldset dl dl,
 fieldset fieldset fieldset,
 fieldset fieldset dl dl,
@@ -1568,13 +1636,11 @@ fieldset fieldset fieldset {
   width: 100%;
 }
 
-/* sticky filters box */
+/* Filters box */
 form.filters {
-  margin: var(--spacing-normal) 0;
   position: sticky;
   top: var(--spacing-sticky-top);
-  box-sizing: border-box;
-  width: 25%;
+  margin: var(--spacing-normal) 0;
   padding: 0;
 }
 
@@ -1588,7 +1654,7 @@ form.filters {
 }
 
 .filters input[type="text"] {
-  width: -moz-available;
+  box-sizing: border-box;
 }
 
 .filters dl > dd.submit:first-of-type input {
@@ -1762,6 +1828,10 @@ dd.expandable dl.range {
   color: var(--color-red);
 }
 
+/* ------------------ */
+/* REGION: Datepicker */
+/* ------------------ */
+
 #ui-datepicker-div {
   background: var(--bg-highlight);
   color: var(--text-primary);
@@ -1854,11 +1924,6 @@ li.tag.added {
 
 dd.autocomplete li.input {
   margin-top: var(--spacing-small);
-}
-
-.filters dd.search,
-form:not(.filters) .autocomplete li.input {
-  padding-right: var(--spacing-normal);
 }
 
 .autocomplete span.delete {

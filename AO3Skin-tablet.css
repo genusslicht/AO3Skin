@@ -66,6 +66,6 @@ form.single ul.autocomplete {
   max-height: 90vh;
 }
 
-body:has(#modal .content p) {
+body:has(#modal .content p, #modal .content dl) {
   overflow: hidden;
 }
