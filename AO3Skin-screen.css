@@ -1096,7 +1096,7 @@ li.relationships a.tag {
   width: auto;
   order: 4;
   margin: 0;
-  margin-right: var(--spacing-large);
+  margin: 0 var(--spacing-normal) var(--spacing-small) 0;
 }
 
 .wrapper .work.meta.group dd.freeform {
@@ -1378,7 +1378,7 @@ li.comment.group {
   border: 0;
   box-shadow: var(--shadow);
   border-radius: var(--border-radius);
-  padding: var(--spacing-normal);
+  padding: var(--spacing-small) var(--spacing-normal);
 }
 
 .short.blurb.group {
@@ -1405,7 +1405,7 @@ div.preface .byline a {
 
 .reading .deleted h4.viewed,
 .reading h4.viewed,
-.own.bookmark .user {
+.bookmark .own.user {
   background: var(--bg-primary);
   box-shadow: none;
   margin-bottom: var(--spacing-small);
