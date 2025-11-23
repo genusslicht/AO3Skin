@@ -18,6 +18,7 @@ body {
 #header > h1.heading {
   flex-grow: 1;
   width: 40%;
+  min-width: 12em;
 }
 
 #header li.search fieldset {

@@ -398,7 +398,7 @@ a.rss span {
 #header {
   padding: var(--spacing-normal);
   display: flex;
-  justify-content: left;
+  justify-content: space-evenly;
   flex-flow: row wrap;
   top: 0;
   z-index: 10;
@@ -451,18 +451,6 @@ a.rss span {
 #greeting .user > li,
 #header .primary > li {
   margin: 0 var(--spacing-xsmall);
-}
-
-#greeting .user > li.dropdown > a[href^="/users/"] {
-  text-indent: -9999px;
-  line-height: 0;
-}
-
-#greeting .user > li.dropdown > a[href^="/users/"]:after {
-  content: "Account";
-  text-indent: 0;
-  display: block;
-  line-height: var(--line-height);
 }
 
 #header .primary a,
@@ -588,6 +576,7 @@ a.rss span {
   margin-right: 0;
   padding-right: 1.6em;
   width: 15vw;
+  max-width: 15em;
 }
 
 #header li.search fieldset::before {
@@ -1392,6 +1381,11 @@ li.comment.group {
   padding: var(--spacing-normal);
 }
 
+.short.blurb.group {
+  margin-left: var(--spacing-large);
+  margin-right: var(--spacing-large);
+}
+
 .works .wrapper,
 .works-show .wrapper {
   background: var(--bg-secondary);
@@ -1411,7 +1405,7 @@ div.preface .byline a {
 
 .reading .deleted h4.viewed,
 .reading h4.viewed,
-.bookmark .user {
+.own.bookmark .user {
   background: var(--bg-primary);
   box-shadow: none;
   margin-bottom: var(--spacing-small);
@@ -2332,11 +2326,12 @@ li.work.blurb {
 :is(.meta, .blurb, .statistics) dl.stats {
   display: flex;
   align-items: baseline;
-  justify-content: left;
+  flex-flow: row wrap;
+  justify-content: right;
 }
 
-.statistics dl.stats {
-  justify-content: right;
+.meta dl.stats {
+  justify-content: left;
 }
 
 .work.meta.group dd.language,
@@ -2348,7 +2343,7 @@ li.work.blurb {
 }
 
 :is(.meta, .blurb, .statistics) dl.stats dd:not(:first-of-type) {
-  margin-left: var(--spacing-large);
+  margin-left: var(--spacing-normal);
 }
 
 .stats
@@ -2496,4 +2491,44 @@ li.work.blurb {
 /* TagSet Additional */
 .tagset.group > dl.stats > dd:nth-of-type(4):before {
   background-image: url(https://ucarecdn.com/ef53d87d-9708-46fa-bf94-5bee1fcb42a8/tags.png);
+}
+
+/* ---------------------- */
+/* REGION: USER NAV ICONS */
+/* ---------------------- */
+
+#greeting .user > li > a {
+  text-indent: -9999px;
+  line-height: 0;
+  margin-left: var(--spacing-normal);
+}
+
+#greeting .user > li > a:after {
+  content: "";
+  width: 1em;
+  height: 1em;
+  text-indent: 0;
+  display: block;
+  line-height: var(--line-height);
+  background-repeat: no-repeat;
+  background-size: 1.3em;
+  background-position-x: center;
+  padding: var(--spacing-small);
+  filter: var(--filter-text-primary);
+}
+
+#greeting .user > li.dropdown > a[href^="/users/"]:after {
+  background-image: url(https://ucarecdn.com/587c8ee3-3d57-4841-91eb-e002a83bd986/circleuserround.png);
+}
+
+#greeting .user > li.dropdown > a[href^="/works/new"]:after {
+  background-image: url(https://ucarecdn.com/47524f3a-0f75-47b0-a93d-70638277ee0a/fileplus.png);
+}
+
+#greeting .user > li > a[href^="/users/logout"] {
+  margin-left: var(--spacing-large);
+}
+
+#greeting .user > li > a[href^="/users/logout"]:after {
+  background-image: url(https://ucarecdn.com/464585fb-e1b9-4655-a060-625c7349ca31/logout.png);
 }
