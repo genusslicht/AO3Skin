@@ -30,12 +30,17 @@ Skin for AO3. Fully themable through variables.
    - Check: "Parent skin only"
    - Add the previously created tablet skin as parent
    - Choose media: `only screen and (max-width: 42em)`
-4. Create the master skin
+4. (optional) Create light / dark mode skin
+   - Name: `<your-username> My Skin (light / dark)` (choose the one that isn't your default mode)
+   - Paste the light or dark theme skin of your choice
+   - Choose media: `(prefers-color-scheme: light / dark)`
+5. Create the master skin
    - Name: `<your-username> My Skin`
-   - Paste the theme css you want to use
-   - Add previously created mobile skin
-   - Choose media: `screen`
-5. Save and hit "Use" :)
+   - Paste the theme css you want to use (different to step 4.!)
+   - Add the previously created skin in the same order as parent skins
+   - optional: add light / dark mode skin
+   - Choose media: `screen` (or if you choose to do step 4., pick the other one of `(prefers-color-scheme: light / dark)` option now!)
+6. Save and hit "Use" :)
 
 ## Variables
 
@@ -133,6 +138,6 @@ See: [My Github Gist](https://gist.github.com/genusslicht/9910dfeb496f20dacac429
 | `--filter-chart-guide-even`   | Filter for even guide lines in chart. (suggestion: ignore, or `opacity(0.2)` for dark, a higher `0.x` for light theme)        |
 | `--filter-chart-guide-odd`    | Filter for odd guide lines in chart. (suggestion: ignore, or `opacity(0.1)` for dark, a higher `0.x` for light theme)         |
 
-### Custom Icon Colors
+### Custom Required Icon Colors
 
 `--filter-icons` - Define a filter chain to tint replaced icons a little closer to used theme colors. Play around with it in the Browser dev tools. `brightness`, `contrast` and `saturate` are your friends.
