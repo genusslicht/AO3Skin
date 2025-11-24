@@ -1696,13 +1696,27 @@ form.filters {
   font-size: var(--font-size-small);
 }
 
+.filters .expanded .expander:before,
 .filters .expander:before {
-  content: "\2B9E";
+  content: "";
   position: absolute;
+  top: 0;
   left: 0;
+  width: 1em;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: 1em;
+  background-position-x: left;
+  background-position-y: center;
+  filter: var(--filter-text-primary);
 }
+
+.filters .expander:before {
+  background-image: url(https://ucarecdn.com/40392467-610d-4b1a-aa4f-580570f097cd/circlechevronright.png);
+}
+
 .filters .expanded .expander:before {
-  content: "\2B9F";
+  background-image: url(https://ucarecdn.com/f5704d38-6a53-47fa-8a00-dfc1f05f20eb/circlechevrondown.png);
 }
 
 .filters .expanded .expander,
@@ -2207,28 +2221,70 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
   background-size: 25px;
 }
 
+/* prep pseudo element */
+.bookmark p.status ~ .own.user:before {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: top center;
+  top: 0;
+  left: var(--spacing-small);
+  filter: var(--filter-icons);
+}
+
+/* make space for new bookmark position */
+.bookmark .own.user {
+  padding-left: 46px;
+}
+
+.bookmark .status:not(:has(~ .own)) .private .text,
+.bookmark .status:not(:has(~ .own)) .public,
+.bookmark .status:not(:has(~ .own)) .rec,
+.bookmark .status:not(:has(~ .own)) .hidden,
 #bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
-.bookmark .status .private .text {
-  background: center no-repeat url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
-  background-size: 25px;
-}
-
 #bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
-.bookmark .status .public {
-  background: center no-repeat url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
-  background-size: 25px;
-}
-
 #bookmark-symbols-key dt:has(img[alt="Rec"])::before,
-.bookmark .status .rec {
-  background: center no-repeat url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
+#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before {
   background-size: 25px;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: var(--filter-icons);
 }
 
+.bookmark .status:not(:has(~ .own)) .private .text,
+#bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
+.bookmark p.status:has(.private) ~ .own.user:before {
+  background-image: url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
+}
+
+.bookmark .status:not(:has(~ .own)) .public,
+#bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
+.bookmark p.status:has(.public) ~ .own.user:before {
+  background-image: url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
+}
+
+.bookmark .status:not(:has(~ .own)) .rec,
+#bookmark-symbols-key dt:has(img[alt="Rec"])::before,
+.bookmark p.status:has(.rec) ~ .own.user:before {
+  background-image: url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
+}
+
+.bookmark .status:not(:has(~ .own)) .hidden,
 #bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before,
-.bookmark .status .hidden {
-  background: center no-repeat url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
+.bookmark p.status:has(.hidden) ~ .own.user:before {
+  background-image: url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
+}
+
+.bookmark .status:has(~ .own) .private .text,
+.bookmark .status:has(~ .own) .public,
+.bookmark .status:has(~ .own) .rec,
+.bookmark .status:has(~ .own) .hidden {
+  background: no-repeat center url(https://ucarecdn.com/99adb535-9fe1-4119-ab5d-130229400c7e/bookmarkcheck.png);
   background-size: 25px;
+  filter: var(--filter-text-primary);
 }
 
 /* ARCHIVE LOCKED FICS */
@@ -2236,14 +2292,11 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 .heading:has(img[title="Restricted"]) img {
   content: url(https://ucarecdn.com/5dddab40-9972-4421-addb-d02b627e748e/locked.png);
   height: auto;
+  filter: var(--filter-icons);
 }
 
-#bookmark-symbols-key dt:has(img):before,
 #symbols-key dd dt:has(img):before,
-.required-tags span:is(.category, .rating, .warnings, .iswip),
-#bookmark-symbols-key dt:has(img[alt])::before,
-.bookmark .status span:is(.rec, .public, .private, .hidden),
-.heading:has(img[title="Restricted"]) img {
+.required-tags span:is(.category, .rating, .warnings, .iswip) {
   filter: var(--filter-icons);
 }
 
@@ -2383,114 +2436,109 @@ li.work.blurb {
 /* language */
 .stats dd.language:before,
 .work.meta.group dd.language:before {
-  background-image: url(https://ucarecdn.com/a4aece95-45ce-4f32-865d-9d77bbe38cb2/languages.png);
+  background-image: url(https://ucarecdn.com/a080660c-76c7-4506-be8c-b01cfda12c54/languages.png);
 }
 
 /* words */
 .stats dd.words:before {
-  background-image: url(https://ucarecdn.com/6df09503-874f-464b-9c1d-2fd551480e48/pencilline.png);
+  background-image: url(https://ucarecdn.com/2540bdd4-f945-4715-965b-71e56e6a4b3f/pencilline.png);
 }
 
 /* chapters */
 .stats dd.chapters:before {
-  background-image: url(https://ucarecdn.com/0874dd4f-e754-44f1-928c-dc0c79b6437d/bookopentext.png);
+  background-image: url(https://ucarecdn.com/8c813f47-5221-49c2-a7ab-600f67a5223d/bookopentext.png);
 }
 
 /* comments */
 .stats dd.comments:before {
-  background-image: url(https://ucarecdn.com/0d725d66-2d8e-44dc-a924-329af7a2cce1/messagesquare.png);
+  background-image: url(https://ucarecdn.com/1caecc6c-67c5-4cf3-8afa-86f477dfd894/messagesquare.png);
 }
 
 /* kudos */
 .stats dd.kudos:before {
-  background-image: url(https://ucarecdn.com/c102e31d-f110-4609-9392-298ac7ec9c08/sparkles.png);
+  background-image: url(https://ucarecdn.com/643395d4-8999-4f0d-bc6d-512cbf1c370c/sparkles.png);
 }
 
 /* bookmarks */
 .stats dd.bookmarks:before {
-  background-image: url(https://ucarecdn.com/b907fcbb-697a-4eb6-8d70-f281764bd360/bookmark.png);
+  background-image: url(https://ucarecdn.com/bea65ed9-7c79-4fd1-8983-6cf362cdd327/bookmark.png);
 }
 
 /* hits */
 .stats dd.hits:before {
-  background-image: url(https://ucarecdn.com/a9199272-7baa-4024-83c4-9375bd458496/eye.png);
+  background-image: url(https://ucarecdn.com/7f846a1e-932f-4e29-a506-4bf095959a4d/eye.png);
 }
 
 /* collections */
 .stats dd.collections:has(a[href^="/works"]):before,
 .work.meta.group dd.collections:before {
-  background-image: url(https://ucarecdn.com/773054fe-1d19-452d-a2bc-cf3ed5c9a45d/landmark.png);
+  background-image: url(https://ucarecdn.com/56aa8199-e557-41ca-b3a1-5653ffc03ff8/landmark.png);
 }
 
 /* subscriptions */
 .stats dd.subscriptions:before {
-  background-image: url(https://ucarecdn.com/883aa316-ad9f-4f68-9ad0-dabb660c49ab/mailcheck.png);
+  background-image: url(https://ucarecdn.com/06b209d5-bcd7-4d04-95c3-6661ca4ca539/mailcheck.png);
 }
 
 /* challenges */
 .stats dd.collections:has(a[href^="/collections"]):before {
-  background-image: url(https://ucarecdn.com/1b51dd32-ef77-4224-b66d-b88f9093c27d/swatchbook.png);
-}
-
-/* works */
-.stats dd.works:before {
-  background-image: url(https://ucarecdn.com/56f25037-593b-4b15-9457-877a321d0147/library.png);
+  background-image: url(https://ucarecdn.com/324a2e53-ad6b-4f88-98eb-f92714a7ff73/swatchbook.png);
 }
 
 /* k2h ratio */
 .stats dd.kudos-hits-ratio:before {
-  background-image: url(https://ucarecdn.com/efc98178-5aa8-45dd-bbec-507cb0539590/flame.png);
+  background-image: url(https://ucarecdn.com/4c5f69c6-a3a8-47e5-b549-edb178d4361c/flame.png);
 }
 
 /* read time ratio */
 .stats dd.reading-time:before {
-  background-image: url(https://ucarecdn.com/518e360d-8a68-4ead-8c1d-b49e4c88dccd/hourglass.png);
+  background-image: url(https://ucarecdn.com/f90beffb-5733-42e3-ba34-36872557ab98/hourglass.png);
 }
 
 /* published */
 .stats dd.published:before {
-  background-image: url(https://ucarecdn.com/0700c0de-7db6-4c49-a5e9-7a78ec2145a8/calendarplus.png);
+  background-image: url(https://ucarecdn.com/a34f3f19-4d1f-4c42-abd0-cd5fea05908a/calendarplus.png);
 }
 
 /* status */
 .stats dd.status:before {
-  background-image: url(https://ucarecdn.com/2beb388c-69df-4950-a17b-0d1498e22a85/calendarclock.png);
+  background-image: url(https://ucarecdn.com/4d83752e-6ffe-4c19-bfe4-0dea786e702e/calendarclock.png);
 }
 
 /* series complete */
 .series.meta.group dl.stats > dd:not([class]):before {
-  background-image: url(https://ucarecdn.com/35151563-cf54-455e-9d37-0928daf67b76/circlecheckbig.png);
+  background-image: url(https://ucarecdn.com/effcde06-e581-4058-be02-43696f653160/circlecheckbig.png);
 }
 
 /* works */
 .stats dd.works:before {
-  background-image: url(https://ucarecdn.com/56f25037-593b-4b15-9457-877a321d0147/library.png);
+  background-image: url(https://ucarecdn.com/016ade42-a236-4ba3-ad59-c3237823e135/library.png);
 }
 
 /* fandoms & TagSet Fandoms */
 .stats dd.fandoms:before,
 .tagset.group > dl.stats > dd:nth-of-type(1):before {
-  background-image: url(https://ucarecdn.com/60d2f8ca-6a2d-4376-8b66-3e8ff654d9d9/landplot.png);
+  background-image: url(https://ucarecdn.com/a252b72e-ffb6-4685-99af-66c38e90cb6a/landplot.png);
 }
 
 /* prompts */
 .stats dd.prompts:before {
-  background-image: url(https://ucarecdn.com/f667b38d-902e-4e95-b5b9-fe606ff1048f/cakeslice.png);
+  background-image: url(https://ucarecdn.com/53b1255c-cedb-47d1-83ed-63a00e65d70b/cakeslice.png);
 }
 
 /* TagSet Characters */
 .tagset.group > dl.stats > dd:nth-of-type(2):before {
-  background-image: url(https://ucarecdn.com/0b304572-8704-419c-b529-33f24b2fdcf4/drama.png);
+  background-image: url(https://ucarecdn.com/18cd6dcc-959e-4ca2-b615-aad263e1227e/drama.png);
 }
 
 /* TagSet Relationships */
 .tagset.group > dl.stats > dd:nth-of-type(3):before {
-  background-image: url(https://ucarecdn.com/991ced4d-ecd9-428b-8997-7618ff906839/handshake.png);
+  background-image: url(https://ucarecdn.com/3d7e4bc6-a1ff-44a9-a7a5-24cf154b07da/handshake.png);
 }
 
 /* TagSet Additional */
 .tagset.group > dl.stats > dd:nth-of-type(4):before {
-  background-image: url(https://ucarecdn.com/ef53d87d-9708-46fa-bf94-5bee1fcb42a8/tags.png);
+  background-image: url(https://ucarecdn.com/b1cac42e-1f14-4560-9c5e-681c467c59a7/tags.png);
 }
 
 /* ---------------------- */

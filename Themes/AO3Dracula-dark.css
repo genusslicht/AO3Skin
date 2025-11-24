@@ -24,7 +24,7 @@
 
   --color-fg-question: var(--color-selection);
 
-  --filter-text-primary: brightness(0) invert(90%) sepia(2%) saturate(1839%) hue-rotate(197deg) brightness(106%) contrast(77%);
+  --filter-text-primary: brightness(0) invert(94%) sepia(9%) saturate(636%) hue-rotate(318deg) brightness(111%) contrast(95%);
 
   --filter-chart-bg: opacity(0);
   --filter-chart-text: var(--filter-text-primary);
