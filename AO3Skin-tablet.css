@@ -28,6 +28,7 @@
 #dashboard.own {
   position: initial;
   top: unset;
+  text-align: center;
 }
 
 #dashboard .secondary {

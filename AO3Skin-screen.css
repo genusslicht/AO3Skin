@@ -1044,7 +1044,7 @@ a.tag:is(:hover, :focus, :focus-visible) {
   margin: var(--spacing-small) 0;
   font-weight: normal;
   box-shadow: var(--shadow);
-  border: 0;
+  border: thin solid;
   color: var(--text-primary);
 }
 
@@ -1462,7 +1462,7 @@ span.actions {
 .actions li input,
 .actions li input[type="submit"],
 .actions li .current,
-.actions li .heading,
+#inner .actions li .heading,
 .actions li label {
   margin: var(--spacing-small) auto;
   padding: 0.25em 0.75em;
@@ -2088,6 +2088,7 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 
 #stat_chart text {
   font-family: "Noto Sans", sans-serif;
+  font-size: 1em;
 }
 
 /** ------------- **/
@@ -2389,14 +2390,27 @@ li.work.blurb {
 
 .work.meta.group dd.language,
 :is(.meta, .blurb, .statistics) dl.stats dd {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   padding: 0;
   margin: 0;
 }
 
-:is(.meta, .blurb, .statistics) dl.stats dd:not(:first-of-type) {
+.statistics.meta.group dt {
+  display: none;
+}
+
+.statistics.meta.group dd {
+  display: inline-flex;
+  align-items: center;
+}
+
+:is(.blurb, .statistics) dl.stats dd:not(:first-of-type) {
   margin-left: var(--spacing-normal);
+}
+
+.meta dl.stats dd:not(:last-of-type) {
+  margin-right: var(--spacing-normal);
 }
 
 .stats
@@ -2419,6 +2433,7 @@ li.work.blurb {
     .published,
     .status
   ):before,
+.statistics.meta.group dd:is(.words, .kudos, .hits, .comment.thread, .bookmarks, .subscriptions):before,
 .series.meta.group dl.stats > dd:not([class]):before,
 .work.meta.group dd.language:before,
 .tagset.group > dl.stats > dd:before {
@@ -2440,6 +2455,7 @@ li.work.blurb {
 }
 
 /* words */
+.statistics.meta.group dd.words:before,
 .stats dd.words:before {
   background-image: url(https://ucarecdn.com/2540bdd4-f945-4715-965b-71e56e6a4b3f/pencilline.png);
 }
@@ -2454,17 +2470,25 @@ li.work.blurb {
   background-image: url(https://ucarecdn.com/1caecc6c-67c5-4cf3-8afa-86f477dfd894/messagesquare.png);
 }
 
+/* comment threads */
+.statistics.meta.group dd.comment.thread:before {
+  background-image: url(https://ucarecdn.com/84e25643-7780-41f6-a7a8-d46761cb4d19/messagessquare.png);
+}
+
 /* kudos */
+.statistics.meta.group dd.kudos:before,
 .stats dd.kudos:before {
   background-image: url(https://ucarecdn.com/643395d4-8999-4f0d-bc6d-512cbf1c370c/sparkles.png);
 }
 
 /* bookmarks */
+.statistics.meta.group dd.bookmarks:before,
 .stats dd.bookmarks:before {
   background-image: url(https://ucarecdn.com/bea65ed9-7c79-4fd1-8983-6cf362cdd327/bookmark.png);
 }
 
 /* hits */
+.statistics.meta.group dd.hits:before,
 .stats dd.hits:before {
   background-image: url(https://ucarecdn.com/7f846a1e-932f-4e29-a506-4bf095959a4d/eye.png);
 }
@@ -2476,8 +2500,14 @@ li.work.blurb {
 }
 
 /* subscriptions */
+.statistics.meta.group dd.subscriptions:before,
 .stats dd.subscriptions:before {
   background-image: url(https://ucarecdn.com/06b209d5-bcd7-4d04-95c3-6661ca4ca539/mailcheck.png);
+}
+
+/* user subscriptions */
+.statistics.meta.group dd.user.subscriptions:before {
+  background-image: url(https://ucarecdn.com/9068adb0-a93e-4115-a152-dec7242512dc/userroundcheck.png);
 }
 
 /* challenges */
