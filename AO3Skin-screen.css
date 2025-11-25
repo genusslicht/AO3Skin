@@ -2305,33 +2305,33 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 /** WORK RATING EARMARK **/
 /** ------------------- **/
 
-.work.meta.group,
-li.work.blurb {
+.meta.group,
+li.blurb {
   z-index: 0;
 }
 
-.work.meta.group:has(.tags.rating a.tag[href*="/tags/Explicit/"]):before,
-.work.blurb:has(.rating-explicit):before {
+.meta.group:has(.tags.rating a.tag[href*="/tags/Explicit/"]):before,
+.blurb:has(.rating-explicit):before {
   background: linear-gradient(225deg, var(--color-explicit-rating) 0%, transparent var(--earmark-corner-size));
 }
 
-.work.meta.group:has(.tags.rating a.tag[href*="/tags/Mature/"]):before,
-.work.blurb:has(.rating-mature):before {
+.meta.group:has(.tags.rating a.tag[href*="/tags/Mature/"]):before,
+.blurb:has(.rating-mature):before {
   background: linear-gradient(225deg, var(--color-mature-rating) 0%, transparent var(--earmark-corner-size));
 }
 
-.work.meta.group:has(.tags.rating a.tag[href*="/tags/Teen%20And%20Up%20Audiences/"]):before,
-.work.blurb:has(.rating-teen):before {
+.meta.group:has(.tags.rating a.tag[href*="/tags/Teen%20And%20Up%20Audiences/"]):before,
+.blurb:has(.rating-teen):before {
   background: linear-gradient(225deg, var(--color-teen-rating) 0%, transparent var(--earmark-corner-size));
 }
 
-.work.meta.group:has(.tags.rating a.tag[href*="/tags/General%20Audiences/"]):before,
-.work.blurb:has(.rating-general-audience)::before {
+.meta.group:has(.tags.rating a.tag[href*="/tags/General%20Audiences/"]):before,
+.blurb:has(.rating-general-audience)::before {
   background: linear-gradient(225deg, var(--color-gen-rating) 0%, transparent var(--earmark-corner-size));
 }
 
-.work.meta.group:before,
-.work.blurb:before {
+.meta.group:before,
+.blurb:before {
   content: "";
   position: absolute;
   right: 0;
@@ -2342,7 +2342,7 @@ li.work.blurb {
   border-radius: var(--border-radius); /* only relevant if work card has a rounded upper right border */
 }
 
-.work.meta.group > .rating.tags,
+.meta.group > .rating.tags,
 #main > .wrapper .work.meta dt {
   display: none;
 }
