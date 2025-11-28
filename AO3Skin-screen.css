@@ -542,14 +542,16 @@ a.rss span {
   border-radius: var(--border-radius) 0 var(--border-radius) var(--border-radius);
 }
 
-#greeting .open a,
+#header .dropdown.open > a,
 #header li.dropdown,
 #header .user a:focus:is(:focus, :focus-visible),
-#header .dropdown-toggle:is(:hover, :focus, :focus-visible),
+#header .dropdown-toggle:is(:hover),
+#header .dropdown:has(.dropdown-menu > li > a:is(:hover, :focus, :focus-visible)) .dropdown-toggle,
 #greeting .dropdown:is(:hover, :focus, :focus-visible) > a {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
 }
 
+#header .dropdown:not(.open) .dropdown-toggle:is(:focus),
 #greeting .user > li:not(.dropdown) > :is(:hover, :focus, :focus-visible) {
   border-radius: var(--border-radius);
 }
