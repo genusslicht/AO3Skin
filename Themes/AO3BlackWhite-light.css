@@ -1,38 +1,38 @@
 :root {
-  --shadow: none;
+  --color-modal-overlay: rgba(252, 252, 253, 0.7);
+  --color-dark-rbga025: rgba(252, 252, 253, 0.25);
+  --color-dark-rbga010: rgba(252, 252, 253, 0.1);
 
-  --bg-base: #fff;
-  --bg-primary: #fff;
-  --bg-secondary: #ededed;
-  --bg-tertiary: #dedede;
-  --bg-highlight: #cdcdcd;
+  --bg-base: #f8f8f7;
+  --bg-primary: #f4f4f2; /* main bg, notice text */
+  --bg-secondary: #ecece9; /* content boxes */
+  --bg-tertiary: #d6d6d3; /* nested content boxes */
+  --bg-highlight: #ffffff; /* highlights (borders), fav tag odd, notice links */
 
-  --text-primary: #000;
-  --text-highlight: #222;
+  --text-primary: #020203; /* normal text, dropdown odd */
+  --text-highlight: #2c2d30; /* interactables, dropdown even */
 
-  --color-red: #a00;
-  --color-orange: #b50;
-  --color-yellow: #ca0;
-  --color-green: #090;
-  --color-purple: #44d;
-  --color-blue: #08f;
+  --color-red: #eb5b55; /* error notice, filter excluded */
+  --color-orange: #f09236; /* caution notice */
+  --color-yellow: #dcc930; /* info notice */
+  --color-green: #529a6a; /* filter included */
+  --color-purple: #c455eb; /* alert flash */
+  --color-blue: #2173be; /* freeform tags only */
 
-  --color-selection: #666;
-  --color-link-action-hover: #999;
+  --color-selection: var(--color-blue);
+  --color-link-action-hover: var(--text-primary);
 
-  --color-fandom-tags: #444;
-  --color-explicit-tags: #444;
-  --color-mature-tags: #444;
-  --color-warning-tags: #444;
-  --color-platonic-tags: #444;
-  --color-character-tags: #444;
-  --color-freeform-tags: #444;
+  --color-fg-question: var(--color-blue);
 
-  --color-fg-question: #444;
+  --filter-text-primary: brightness(0) invert(2%) sepia(1%) saturate(4635%) hue-rotate(201deg) brightness(85%) contrast(102%);
 
   --filter-chart-bg: opacity(0);
-  --filter-text-primary: opacity(1);
-  --filter-chart-guide-odd: brightness(0.8);
+  --filter-chart-text: var(--filter-text-primary);
+  --filter-chart-tooltip: var(--filter-text-primary) invert(100%);
+  --filter-chart-accent: brightness(0) var(--filter-text-primary);
+  --filter-chart-accent-hover: brightness(0) invert(32%) sepia(91%) saturate(871%) hue-rotate(180deg) brightness(97%) contrast(88%);
+  --filter-chart-guide-even: opacity(0.8);
+  --filter-chart-guide-odd: opacity(0.9);
 
-  --filter-icons: saturate(0) brightness(0.7);
+  --filter-icons: brightness(0.9) saturate(1.5);
 }
