@@ -415,6 +415,7 @@ a.rss span {
 
 #header > h1.heading a {
   font-size: var(--font-size-large);
+  text-decoration: none;
 }
 
 #header nav {
@@ -504,7 +505,7 @@ a.rss span {
   background: var(--bg-highlight);
 }
 
-#header .menu li {
+#header .menu li:not(:last-child) {
   border-bottom: var(--border-normal) solid var(--bg-secondary);
 }
 
@@ -900,7 +901,7 @@ a,
 a:is(:link, :visited) {
   color: var(--text-highlight);
   border: 0;
-  border-bottom: var(--border-normal) solid var(--text-highlight);
+  text-decoration: underline;
 }
 
 a:is(:hover, :focus, :focus-visible),
@@ -909,7 +910,6 @@ a:visited:is(:hover, :focus, :focus-visible),
 .bookmark .count a:is(:hover, :focus, :focus-visible),
 .listbox .heading a:is(:hover, :focus, :focus-visible) {
   color: var(--color-link-action-hover);
-  border-bottom-color: var(--color-link-action-hover);
 }
 
 .bookmark .count a {
@@ -982,6 +982,7 @@ li.comment {
 .comment .posted {
   padding: var(--spacing-small) 0 0 var(--spacing-small);
 }
+
 span.unread,
 .replied,
 span.claimed,
@@ -996,6 +997,11 @@ span.claimed,
   color: var(--color-green);
   border-color: var(--color-green);
   background: unset;
+}
+
+div.dynamic {
+  background: var(--color-dark-rbga070);
+  border-radius: var(--border-radius);
 }
 
 .own,
@@ -1034,6 +1040,7 @@ a.tag {
   word-break: keep-all;
   word-wrap: unset;
   transition: color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
 }
 
 a.tag:is(:hover, :focus, :focus-visible) {
@@ -1140,7 +1147,7 @@ h2.heading a.tag:is(:hover, :focus, :focus-visible) {
 }
 
 .listbox h2.heading a.tag:is(:hover, :focus, :focus-visible) {
-  border-bottom: var(--border-normal) solid;
+  text-decoration: underline;
 }
 
 .listbox .heading a.tag:visited:is(:hover, :focus, :focus-visible),
@@ -1297,7 +1304,7 @@ dd.rating a.tag[href*="General%20Audiences"] {
 .blurb h4 a:link,
 .blurb h4 img {
   color: var(--text-highlight);
-  transition: color 0.2s ease;
+  transition: color 0.2s ease, border-color 0.2s ease;
 }
 
 .listbox .heading a:is(:hover, :focus, :focus-visible),
@@ -1306,7 +1313,7 @@ dd.rating a.tag[href*="General%20Audiences"] {
 }
 
 .comment h4.heading a {
-  border: 0;
+  text-decoration: none;
 }
 
 .blurb h4.heading a:first-child {
@@ -1315,7 +1322,7 @@ dd.rating a.tag[href*="General%20Audiences"] {
   width: 100%;
   display: inline-block;
   margin-bottom: var(--spacing-small);
-  border: 0;
+  text-decoration: none;
 }
 
 .blurb ul.required-tags li a:is(:hover, :focus, :focus-visible) {
@@ -1401,8 +1408,21 @@ li.comment.group {
   border-radius: var(--border-radius);
 }
 
+#workskin {
+  max-width: 65em;
+}
+
+div.preface {
+  margin: var(--spacing-large) 0;
+}
+
 div.preface .byline a {
   font-family: "Noto Sans", Helvetica, sans-serif;
+  font-size: var(--font-size-xsmall);
+}
+
+div.preface .jump {
+  margin-top: var(--spacing-xlarge);
   font-size: var(--font-size-xsmall);
 }
 
@@ -1414,10 +1434,15 @@ div.preface .byline a {
 
 .reading .deleted h4.viewed,
 .reading h4.viewed,
-.bookmark .own.user {
+.bookmarks-show .bookmark .user,
+.bookmarks-index.dashboard .bookmark .user {
   background: var(--bg-primary);
   box-shadow: none;
   margin-bottom: var(--spacing-small);
+}
+
+.bookmarks-show .bookmark {
+  clear: right;
 }
 
 .bookmark .short .status {
@@ -1675,7 +1700,7 @@ form.filters {
 .filters .submit input {
   background: var(--bg-highlight);
   border: none;
-  color: var(--text-highlight);
+  color: var(--text-primary);
   box-shadow: none;
 }
 
@@ -1970,6 +1995,7 @@ dd.autocomplete li.input {
 a.question {
   font-size: var(--font-size-xsmall);
   border: 0;
+  text-decoration: none;
 }
 
 span.symbol {
@@ -2233,7 +2259,8 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 /* prep pseudo element */
-.bookmark p.status ~ .own.user:before {
+.bookmarks-show .bookmark p.status ~ .user:before,
+.bookmarks-index.dashboard .bookmark p.status ~ .user:before {
   content: "";
   position: absolute;
   width: 40px;
@@ -2247,14 +2274,16 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 /* make space for new bookmark position */
-.bookmark .own.user {
+.bookmarks-show .bookmark .user,
+.bookmarks-index.dashboard .bookmark .user {
   padding-left: 46px;
 }
 
-.bookmark .status:not(:has(~ .own)) .private .text,
-.bookmark .status:not(:has(~ .own)) .public,
-.bookmark .status:not(:has(~ .own)) .rec,
-.bookmark .status:not(:has(~ .own)) .hidden,
+/* .bookmarks-index.dashboard .bookmark  */
+:not(.dashboard, .bookmarks-show) .bookmark .status .private .text,
+:not(.dashboard, .bookmarks-show) .bookmark .status .public,
+:not(.dashboard, .bookmarks-show) .bookmark .status .rec,
+:not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
 #bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
 #bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
 #bookmark-symbols-key dt:has(img[alt="Rec"])::before,
@@ -2265,34 +2294,34 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
   filter: var(--filter-icons);
 }
 
-.bookmark .status:not(:has(~ .own)) .private .text,
+:not(.dashboard, .bookmarks-show) .bookmark .status .private .text,
 #bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
-.bookmark p.status:has(.private) ~ .own.user:before {
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.private) ~ .user:before {
   background-image: url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
 }
 
-.bookmark .status:not(:has(~ .own)) .public,
+:not(.dashboard, .bookmarks-show) .bookmark .status .public,
 #bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
-.bookmark p.status:has(.public) ~ .own.user:before {
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.public) ~ .user:before {
   background-image: url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
 }
 
-.bookmark .status:not(:has(~ .own)) .rec,
+:not(.dashboard, .bookmarks-show) .bookmark .status .rec,
 #bookmark-symbols-key dt:has(img[alt="Rec"])::before,
-.bookmark p.status:has(.rec) ~ .own.user:before {
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.rec) ~ .user:before {
   background-image: url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
 }
 
-.bookmark .status:not(:has(~ .own)) .hidden,
+:not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
 #bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before,
-.bookmark p.status:has(.hidden) ~ .own.user:before {
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.hidden) ~ .user:before {
   background-image: url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
 }
 
-.bookmark .status:has(~ .own) .private .text,
-.bookmark .status:has(~ .own) .public,
-.bookmark .status:has(~ .own) .rec,
-.bookmark .status:has(~ .own) .hidden {
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .private .text,
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .public,
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .rec,
+:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .hidden {
   background: no-repeat center url(https://ucarecdn.com/99adb535-9fe1-4119-ab5d-130229400c7e/bookmarkcheck.png);
   background-size: 25px;
   filter: var(--filter-text-primary);

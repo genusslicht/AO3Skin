@@ -8,8 +8,7 @@
 
   --bg-base: #e6eaf1;
   --bg-primary: #f1f3f7; /* main bg, notice text */
-  --bg-secondary: #eceff4; /* content boxes */
-  --bg-tertiary: #e5e9f0; /* nested content boxes */
+  --bg-secondary: #e5e9f0; /* content boxes */
   --bg-highlight: #d8dee9; /* highlights (borders), fav tag odd, notice links */
 
   --text-primary: #2e3440; /* normal text, dropdown odd */

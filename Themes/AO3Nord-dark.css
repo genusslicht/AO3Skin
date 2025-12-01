@@ -5,7 +5,6 @@
   --bg-base: #242933; /* header / footer background */
   --bg-primary: #2e3440; /* main bg, notice text */
   --bg-secondary: #3b4252; /* content boxes */
-  --bg-tertiary: #434c5e; /* nested content boxes */
   --bg-highlight: #4c566a; /* dark highlights (borders), fav tag odd, notice links */
 
   --text-primary: #eceff4; /* normal text, dropdown odd */
