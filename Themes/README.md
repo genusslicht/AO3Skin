@@ -2,16 +2,16 @@
 
 ## Dracula
 
-| Format  | Dark                                | Light                                |
-| ------- | ----------------------------------- | ------------------------------------ |
-| Desktop | ![](assets/Dracula_dark.png)        | ![](assets/Dracula_light.png)        |
-| Tablet  | ![](assets/Dracula_dark_tablet.png) | ![](assets/Dracula_light_tablet.png) |
-| Mobile  | ![](assets/Dracula_dark_mobile.png) | ![](assets/Dracula_light_mobile.png) |
+| Format  | Dark Main                              | Dark Dashbaord                         | Light                                   | Light Dashboard                         |
+| ------- | -------------------------------------- | -------------------------------------- | --------------------------------------- | --------------------------------------- |
+| Desktop | ![](assets/1_Dracula_dark_desktop.png) | ![](assets/2_Dracula_dark_desktop.png) | ![](assets/1_Dracula_light_desktop.png) | ![](assets/2_Dracula_light_desktop.png) |
+| Tablet  | ![](assets/1_Dracula_dark_tablet.png)  | ![](assets/2_Dracula_dark_tablet.png)  | ![](assets/1_Dracula_light_tablet.png)  | ![](assets/2_Dracula_light_tablet.png)  |
+| Mobile  | ![](assets/1_Dracula_dark_mobile.png)  | ![](assets/2_Dracula_dark_mobile.png)  | ![](assets/1_Dracula_light_mobile.png)  | ![](assets/2_Dracula_light_mobile.png)  |
 
 ## Nord
 
-| Format  | Dark                             | Light                             |
-| ------- | -------------------------------- | --------------------------------- |
-| Desktop | ![](assets/Nord_dark.png)        | ![](assets/Nord_light.png)        |
-| Tablet  | ![](assets/Nord_dark_tablet.png) | ![](assets/Nord_light_tablet.png) |
-| Mobile  | ![](assets/Nord_dark_mobile.png) | ![](assets/Nord_light_mobile.png) |
+| Format  | Dark Main                           | Dark Dashbaord                      | Light                                | Light Dashboard                      |
+| ------- | ----------------------------------- | ----------------------------------- | ------------------------------------ | ------------------------------------ |
+| Desktop | ![](assets/1_Nord_dark_desktop.png) | ![](assets/2_Nord_dark_desktop.png) | ![](assets/1_Nord_light_desktop.png) | ![](assets/2_Nord_light_desktop.png) |
+| Tablet  | ![](assets/1_Nord_dark_tablet.png)  | ![](assets/2_Nord_dark_tablet.png)  | ![](assets/1_Nord_light_tablet.png)  | ![](assets/2_Nord_light_tablet.png)  |
+| Mobile  | ![](assets/1_Nord_dark_mobile.png)  | ![](assets/2_Nord_dark_mobile.png)  | ![](assets/1_Nord_light_mobile.png)  | ![](assets/2_Nord_light_mobile.png)  |

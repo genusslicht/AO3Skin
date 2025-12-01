@@ -483,6 +483,7 @@ a.rss span {
 }
 
 #header a,
+#header h1.heading a,
 #header a:visited,
 #header .user a:is(:hover, :focus, :focus-visible),
 #header .user .dropdown:has(a:hover, a:focus, a:focus-visible),
@@ -582,7 +583,7 @@ a.rss span {
   max-width: 15em;
 }
 
-#header li.search fieldset::before {
+#header li.search fieldset:before {
   padding: var(--spacing-xsmall) var(--spacing-small);
   right: 0;
 }
@@ -600,7 +601,7 @@ a.rss span {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   box-shadow: var(--shadow);
   display: none;
-  z-index: -1;
+  z-index: 1;
   left: var(--spacing-small);
   right: var(--spacing-normal);
   top: 0;
@@ -759,6 +760,7 @@ a.rss span {
   order: 4;
   width: 100%;
   position: relative;
+  color: var(--text-primary);
   background: none;
   font-size: var(--font-size-big);
   text-align: center;
@@ -1348,7 +1350,7 @@ li.search fieldset {
   position: relative;
 }
 
-li.search fieldset::before {
+li.search fieldset:before {
   position: absolute;
   z-index: 1;
   font-weight: bold;
@@ -1359,16 +1361,16 @@ li.search fieldset::before {
   transition: color 0.2s ease;
 }
 
-li.search:has(.text:hover) fieldset::before {
+li.search:has(.text:hover) fieldset:before {
   filter: opacity(1);
 }
 
-li.search:has(.text:focus) fieldset::before {
+li.search:has(.text:focus) fieldset:before {
   filter: opacity(1);
   color: var(--color-link-action-hover);
 }
 
-#main li.search fieldset::before {
+#main li.search fieldset:before {
   padding: 0.05em var(--spacing-small);
   right: var(--spacing-xsmall);
 }
@@ -1822,40 +1824,40 @@ dd.expandable dl.range {
   display: none;
 }
 
-.filters [type="radio"]:checked + .indicator::before {
+.filters [type="radio"]:checked + .indicator:before {
   color: var(--color-selection);
   background-image: radial-gradient(ellipse at center, var(--color-selection) 45%, rgba(0, 0, 0, 0) 50%),
     linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-primary) 5%, var(--bg-primary) 100%);
   border: 1px solid;
 }
 
-.filters .include [type="radio"]:checked + .indicator::before {
+.filters .include [type="radio"]:checked + .indicator:before {
   color: var(--color-green);
   background-image: radial-gradient(ellipse at center, var(--color-green) 45%, rgba(0, 0, 0, 0) 50%),
     linear-gradient(to bottom, var(--bg-primary) 0%, var(--bg-primary) 5%, var(--bg-primary) 100%);
   border: 1px solid;
 }
 
-.filters [type="radio"] + .indicator::before,
-.filters [type="checkbox"] + .indicator::before {
+.filters [type="radio"] + .indicator:before,
+.filters [type="checkbox"] + .indicator:before {
   color: var(--bg-highlight);
   background: var(--color-dark-rbga010);
   border: 1px solid;
 }
 
-.filters [type="checkbox"]:checked + .indicator::before {
+.filters [type="checkbox"]:checked + .indicator:before {
   color: var(--color-selection);
   background: var(--color-dark-rbga010);
   border: 1px solid;
 }
 
-.filters .include [type="checkbox"]:checked + .indicator::before {
+.filters .include [type="checkbox"]:checked + .indicator:before {
   color: var(--color-green);
   background: var(--color-dark-rbga010);
   border: 1px solid;
 }
 
-.filters .exclude [type="checkbox"]:checked + .indicator::before {
+.filters .exclude [type="checkbox"]:checked + .indicator:before {
   color: var(--color-red);
   background: var(--color-dark-rbga010);
   border: 1px solid;
@@ -2284,10 +2286,10 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 :not(.dashboard, .bookmarks-show) .bookmark .status .public,
 :not(.dashboard, .bookmarks-show) .bookmark .status .rec,
 :not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
-#bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
-#bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
-#bookmark-symbols-key dt:has(img[alt="Rec"])::before,
-#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before {
+#bookmark-symbols-key dt:has(img[alt="Private Bookmark"]):before,
+#bookmark-symbols-key dt:has(img[alt="Public Bookmark"]):before,
+#bookmark-symbols-key dt:has(img[alt="Rec"]):before,
+#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"]):before {
   background-size: 25px;
   background-repeat: no-repeat;
   background-position: center;
@@ -2295,25 +2297,25 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 :not(.dashboard, .bookmarks-show) .bookmark .status .private .text,
-#bookmark-symbols-key dt:has(img[alt="Private Bookmark"])::before,
+#bookmark-symbols-key dt:has(img[alt="Private Bookmark"]):before,
 :is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.private) ~ .user:before {
   background-image: url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
 }
 
 :not(.dashboard, .bookmarks-show) .bookmark .status .public,
-#bookmark-symbols-key dt:has(img[alt="Public Bookmark"])::before,
+#bookmark-symbols-key dt:has(img[alt="Public Bookmark"]):before,
 :is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.public) ~ .user:before {
   background-image: url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
 }
 
 :not(.dashboard, .bookmarks-show) .bookmark .status .rec,
-#bookmark-symbols-key dt:has(img[alt="Rec"])::before,
+#bookmark-symbols-key dt:has(img[alt="Rec"]):before,
 :is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.rec) ~ .user:before {
   background-image: url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
 }
 
 :not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
-#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"])::before,
+#bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"]):before,
 :is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.hidden) ~ .user:before {
   background-image: url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
 }
@@ -2365,7 +2367,7 @@ li.blurb {
 }
 
 .meta.group:has(.tags.rating a.tag[href*="/tags/General%20Audiences/"]):before,
-.blurb:has(.rating-general-audience)::before {
+.blurb:has(.rating-general-audience):before {
   background: linear-gradient(225deg, var(--color-gen-rating) 0%, transparent var(--earmark-corner-size));
 }
 
