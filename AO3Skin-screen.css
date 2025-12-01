@@ -669,6 +669,12 @@ a.rss span {
   box-shadow: none;
 }
 
+#dashboard .pseud .expanded,
+#dashboard .pseud .expanded:is(:hover, :focus, :focus-visible) {
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+}
+
 .download a,
 #dashboard a,
 #dashboard span {

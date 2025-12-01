@@ -114,9 +114,9 @@ Colors are used for tags in reading view and earmarks in list view.
 | Variable              | Use / Default                                        |
 | --------------------- | ---------------------------------------------------- |
 | `--color-notice`      | General notice box. Default: `--color-yellow`        |
-| `--color-caution`     | Warnings / Reqired. Default: `--color-yellow`        |
-| `--color-error`       | Errors. Default: `--color-yellow`                    |
-| `--color-alert-flash` | Whatever that is. Default: `--color-yellow`          |
+| `--color-caution`     | Warnings / Reqired. Default: `--color-orange`        |
+| `--color-error`       | Errors. Default: `--color-red`                       |
+| `--color-alert-flash` | Whatever that is. Default: `--color-purple`          |
 | `--color-collection`  | Collection page banner. Default: `--color-selection` |
 
 ### Stat Chart Colors
@@ -141,3 +141,5 @@ See: [My Github Gist](https://gist.github.com/genusslicht/9910dfeb496f20dacac429
 ### Custom Required Icon Colors
 
 `--filter-icons` - Define a filter chain to tint replaced icons a little closer to used theme colors. Play around with it in the Browser dev tools. `brightness`, `contrast` and `saturate` are your friends.
+
+##
