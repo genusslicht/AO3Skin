@@ -1733,6 +1733,7 @@ form.filters {
   overflow-y: scroll;
   overflow-wrap: anywhere;
   box-sizing: border-box;
+  position: relative;
 }
 
 .filters input[type="text"],
@@ -1989,6 +1990,10 @@ dd.autocomplete li.input {
   position: absolute;
   right: 0;
   margin: 0;
+}
+
+span.delete a {
+  text-decoration: none;
 }
 
 .autocomplete .delete a:is(:hover, :focus, :focus-visible) {
