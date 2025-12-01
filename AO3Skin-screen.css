@@ -593,6 +593,10 @@ a.rss span {
   display: none;
 }
 
+#header #search input:focus {
+  z-index: 2;
+}
+
 #site_search_tooltip {
   background: var(--bg-tertiary);
   color: var(--text-primary);
