@@ -1451,11 +1451,14 @@ div.preface .jump {
 
 .reading .deleted h4.viewed,
 .reading h4.viewed,
-.bookmarks-show .bookmark .user,
-.bookmarks-index.dashboard .bookmark .user {
+.bookmark :not(.short) .user {
   background: var(--bg-primary);
   box-shadow: none;
   margin-bottom: var(--spacing-small);
+}
+
+.bookmark :not(.short) .user {
+  min-height: 3.5em;
 }
 
 .bookmarks-show .bookmark {
@@ -2281,8 +2284,7 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 /* prep pseudo element */
-.bookmarks-show .bookmark p.status ~ .user:before,
-.bookmarks-index.dashboard .bookmark p.status ~ .user:before {
+.bookmark:not(:has(.short)) p.status ~ .user:before {
   content: "";
   position: absolute;
   width: 40px;
@@ -2296,16 +2298,15 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
 }
 
 /* make space for new bookmark position */
-.bookmarks-show .bookmark .user,
-.bookmarks-index.dashboard .bookmark .user {
-  padding-left: 46px;
+.bookmark:not(:has(.short)) .user {
+  padding-left: 3.5em;
 }
 
 /* .bookmarks-index.dashboard .bookmark  */
-:not(.dashboard, .bookmarks-show) .bookmark .status .private .text,
-:not(.dashboard, .bookmarks-show) .bookmark .status .public,
-:not(.dashboard, .bookmarks-show) .bookmark .status .rec,
-:not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
+.bookmark .short .status .private .text,
+.bookmark .short .status .public,
+.bookmark .short .status .rec,
+.bookmark .short .status .hidden,
 #bookmark-symbols-key dt:has(img[alt="Private Bookmark"]):before,
 #bookmark-symbols-key dt:has(img[alt="Public Bookmark"]):before,
 #bookmark-symbols-key dt:has(img[alt="Rec"]):before,
@@ -2316,34 +2317,34 @@ form:has(.LV_invalid) input[type="submit"]:is(:focus, :focus-active, :hover) {
   filter: var(--filter-icons);
 }
 
-:not(.dashboard, .bookmarks-show) .bookmark .status .private .text,
+.bookmark .short .status .private .text,
 #bookmark-symbols-key dt:has(img[alt="Private Bookmark"]):before,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.private) ~ .user:before {
+.bookmark:not(:has(.short)) p.status:has(.private) ~ .user:before {
   background-image: url(https://ucarecdn.com/273d91b5-b225-4443-a97b-dfbf2ad6ae7f/bookmark_private.png);
 }
 
-:not(.dashboard, .bookmarks-show) .bookmark .status .public,
+.bookmark .short .status .public,
 #bookmark-symbols-key dt:has(img[alt="Public Bookmark"]):before,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.public) ~ .user:before {
+.bookmark:not(:has(.short)) p.status:has(.public) ~ .user:before {
   background-image: url(https://ucarecdn.com/94f09db3-0347-426e-abd4-5a0a6fbed59b/bookmark.png);
 }
 
-:not(.dashboard, .bookmarks-show) .bookmark .status .rec,
+.bookmark .short .status .rec,
 #bookmark-symbols-key dt:has(img[alt="Rec"]):before,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.rec) ~ .user:before {
+.bookmark:not(:has(.short)) p.status:has(.rec) ~ .user:before {
   background-image: url(https://ucarecdn.com/a29f7c84-0c37-405e-82f7-31319159d6a1/bookmark_rec.png);
 }
 
-:not(.dashboard, .bookmarks-show) .bookmark .status .hidden,
+.bookmark .short .status .hidden,
 #bookmark-symbols-key dt:has(img[alt="Bookmark Hidden by Admin"]):before,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark p.status:has(.hidden) ~ .user:before {
+.bookmark:not(:has(.short)) p.status:has(.hidden) ~ .user:before {
   background-image: url(https://ucarecdn.com/2e10a155-c3e0-483e-a88f-785e1dbc1968/bookmark_locked.png);
 }
 
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .private .text,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .public,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .rec,
-:is(.bookmarks-index.dashboard, .bookmarks-show) .bookmark .status .hidden {
+.bookmark:not(:has(.short)) .status .private .text,
+.bookmark:not(:has(.short)) .status .public,
+.bookmark:not(:has(.short)) .status .rec,
+.bookmark:not(:has(.short)) .status .hidden {
   background: no-repeat center url(https://ucarecdn.com/99adb535-9fe1-4119-ab5d-130229400c7e/bookmarkcheck.png);
   background-size: 25px;
   filter: var(--filter-text-primary);
