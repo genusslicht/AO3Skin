@@ -1062,6 +1062,11 @@ a.tag:is(:hover, :focus, :focus-visible) {
   border-color: var(--color-link-action-hover) !important;
 }
 
+.splash .favorite a.tag:before {
+  content: "\272A";
+  padding-right: var(--spacing-small);
+}
+
 .splash .favorite a.tag {
   padding: var(--spacing-xsmall) var(--spacing-normal);
   margin: var(--spacing-small) 0;
