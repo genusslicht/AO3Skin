@@ -1579,6 +1579,28 @@ a:link.current,
   font-weight: bold;
 }
 
+#main .ui-sortable > li {
+  background: var(--bg-secondary);
+  border: var(--border-fat) solid var(--bg-secondary);
+  box-shadow: var(--shadow);
+  border-radius: var(--border-radius);
+}
+
+#main .ui-sortable > li:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-highlight);
+  box-shadow: var(--shadow);
+}
+
+#main .ui-sortable ul.chapter-control {
+  margin-right: var(--spacing-small);
+  flex-wrap: nowrap;
+}
+
+#main .ui-sortable .chapter-control > li {
+  box-shadow: none;
+}
+
 /* form in general */
 form.single fieldset,
 form > dl,
