@@ -1664,8 +1664,21 @@ form blockquote.userstuff {
   box-shadow: none;
 }
 
+fieldset dl,
+fieldset dl dl {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
 form dt {
   border-color: var(--bg-highlight);
+  flex-grow: 1;
+}
+
+form dd {
+  flex-grow: 2;
 }
 
 form.single legend,

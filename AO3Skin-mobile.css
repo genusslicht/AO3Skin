@@ -131,3 +131,13 @@ body:has(.filtering) #footer,
 body:has(.filtering) #inner > * > *:not(.filters) {
   filter: blur(2px);
 }
+
+#managePublicationDate {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+#managePublicationDate select {
+  min-width: unset;
+  margin-right: var(--spacing-small);
+}
