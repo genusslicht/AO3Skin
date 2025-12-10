@@ -327,9 +327,25 @@ select:is(:focus, :focus-visible) {
   border-color: var(--bg-highlight);
 }
 
+a.rss:before {
+  content: "";
+  background: url("https://ucarecdn.com/e89d9641-c578-47ba-ae5b-f891084e891b/rss_white.png") no-repeat;
+  background-size: 1em;
+  background-position: center;
+  width: 1em;
+  height: 1em;
+  display: inline;
+  position: absolute;
+  top: 0.225em;
+  padding: var(--spacing-xsmall);
+  left: var(--spacing-small);
+  border-radius: var(--spacing-xsmall);
+  background-color: orange;
+}
+
 a.rss span {
   background: none;
-  padding-left: 0;
+  padding-left: var(--spacing-large);
 }
 
 .userstuff hr {
